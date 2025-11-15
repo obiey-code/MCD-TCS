@@ -17,7 +17,6 @@
 
         /* Navigation Links */
         .nav-link {
-            /* Ajout de block/w-full/text-left pour le mobile dans le menu déroulant, mais flex/space-x pour desktop */
             @apply px-3 py-2 rounded-xl text-slate-700 font-semibold hover:bg-emerald-100 hover:text-emerald-800 transition-all duration-200 text-sm md:text-base;
         }
         .nav-link.active {
@@ -108,7 +107,6 @@
 </head>
 <body class="bg-slate-100 text-slate-800">
 
-    <!-- Professional Navigation Bar (Responsive update) -->
     <nav class="sticky top-0 bg-white shadow-lg z-50">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-24">
@@ -117,27 +115,13 @@
                         TCS Tableau de Bord
                     </h1>
                 </div>
-
-                <!-- Menu Button (Visible on mobile) -->
-                <button id="mobile-menu-toggle" class="md:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100 transition duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-emerald-500" aria-label="Toggle navigation">
-                    <!-- Hamburger Icon -->
-                    <svg id="menu-icon" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-                    <!-- Close Icon (Hidden by default) -->
-                    <svg id="close-icon" class="w-7 h-7 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                </button>
-
-                <!-- Main Navigation Links (Desktop/Collapsible Mobile) -->
-                <div id="main-navigation-links" class="hidden md:flex md:flex-wrap items-center justify-end space-x-2 sm:space-x-3 
-                    absolute md:static top-24 right-0 w-full md:w-auto bg-white md:bg-transparent shadow-xl md:shadow-none p-4 md:p-0 border-t md:border-t-0">
-                    
-                    <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 w-full md:w-auto">
-                        <button class="nav-link active w-full block text-left md:w-auto md:inline" data-target="accueil">Accueil</button>
-                        <button class="nav-link w-full block text-left md:w-auto md:inline" data-target="technologie">Technologie</button>
-                        <button class="nav-link w-full block text-left md:w-auto md:inline" data-target="impact">Impact</button>
-                        <button class="nav-link w-full block text-left md:w-auto md:inline" data-target="schema_mcd">Schéma MCD</button>
-                        <button class="nav-link w-full block text-left md:w-auto md:inline" data-target="dictionnaire">Dictionnaire</button>
-                        <button class="nav-link w-full block text-left md:w-auto md:inline" data-target="logique">Logique Métier</button>
-                    </div>
+                <div class="flex flex-wrap items-center justify-end space-x-2 sm:space-x-3">
+                    <button class="nav-link active" data-target="accueil">Accueil</button>
+                    <button class="nav-link" data-target="technologie">Technologie</button>
+                    <button class="nav-link" data-target="impact">Impact</button>
+                    <button class="nav-link" data-target="schema_mcd">Schéma MCD</button>
+                    <button class="nav-link" data-target="dictionnaire">Dictionnaire</button>
+                    <button class="nav-link" data-target="logique">Logique Métier</button>
                 </div>
             </div>
         </div>
@@ -145,9 +129,7 @@
 
     <main class="container mx-auto p-4 md:p-8 lg:p-12">
 
-        <!-- ACCUEIL SECTION (From Infographic) -->
         <section id="accueil" class="page-section animate-fade-in space-y-14">
-            <!-- Hero -->
             <div class="bg-gradient-to-r from-red-600 via-orange-500 to-emerald-600 p-8 md:p-12 rounded-3xl shadow-2xl text-white">
                 <h2 class="text-4xl md:text-5xl font-extrabold mb-4 drop-shadow-lg">TCS: La Révolution du Contrôle de Péage</h2>
                 <p class="text-xl font-light opacity-95 leading-relaxed">
@@ -155,14 +137,12 @@
                 </p>
             </div>
 
-            <!-- Core Solution -->
             <div class="app-card">
                  <h2 class="text-3xl font-bold text-center mb-4">Une Solution, Deux Volets Opérationnels</h2>
                 <p class="text-lg text-gray-600 text-center max-w-3xl mx-auto mb-12">
                     Le système TCS est conçu pour gérer nativement les deux types de flux de péage, assurant une couverture complète de vos opérations.
                 </p>
                 <div class="flex flex-col md:flex-row justify-center items-center md:items-stretch space-y-8 md:space-y-0 md:space-x-8">
-                    <!-- Volet Abonnement -->
                     <div class="flow-box flex-1">
                         <span class="text-5xl">💳</span>
                         <h3 class="text-2xl font-semibold text-emerald-700 my-3">Volet ABONNEMENT</h3>
@@ -171,7 +151,6 @@
                         </p>
                     </div>
                     
-                    <!-- Volet Non Abonnement -->
                     <div class="flow-box flex-1 border-orange-500">
                         <span class="text-5xl">🚗</span>
                         <h3 class="text-2xl font-semibold text-orange-600 my-3">Volet NON ABONNEMENT</h3>
@@ -183,11 +162,9 @@
             </div>
         </section>
 
-        <!-- TECHNOLOGIE SECTION (From Infographic) -->
         <section id="technologie" class="page-section hidden animate-fade-in">
              <div class="app-card overflow-hidden">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- Left Side: Text -->
                     <div class="p-4 md:p-8">
                         <h2 class="text-3xl font-bold text-gray-900 mb-4">Technologie Clé: La Borne VIDAR d'Essieux</h2>
                         <p class="text-lg text-gray-600 mb-6">
@@ -208,7 +185,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Right Side: Chart -->
                     <div class="bg-slate-50 p-8 flex items-center justify-center rounded-xl">
                         <div class="w-full">
                             <h3 class="text-xl font-semibold text-center mb-4">Précision de Classification (VIDAR vs. Ancien)</h3>
@@ -221,7 +197,6 @@
             </div>
         </section>
 
-        <!-- IMPACT (DATA) SECTION (From Infographic) -->
         <section id="impact" class="page-section hidden animate-fade-in">
             <div class="app-card mb-12">
                  <h2 class="text-4xl font-extrabold text-emerald-700 mb-4">L'Impact du TCS en Données</h2>
@@ -230,7 +205,6 @@
                 </p>
             </div>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-14">
-                <!-- Chart 1: Revenue -->
                 <div class="app-card">
                     <h3 class="text-2xl font-semibold text-center mb-6">Optimisation des Recettes</h3>
                     <p class="text-gray-600 text-center mb-6">Réduction des pertes et augmentation des recettes collectées grâce à l'automatisation et au contrôle rigoureux.</p>
@@ -239,7 +213,6 @@
                     </div>
                 </div>
 
-                <!-- Chart 2: Traffic -->
                 <div class="app-card">
                     <h3 class="text-2xl font-semibold text-center mb-6">Analyse du Flux de Trafic (par VIDAR)</h3>
                     <p class="text-gray-600 text-center mb-6">Classification automatique permettant une analyse fine du trafic par classe de véhicule pour la maintenance et la tarification.</p>
@@ -250,7 +223,6 @@
             </div>
         </section>
 
-        <!-- MCD SCHEMA SECTION (From Explorer) -->
         <section id="schema_mcd" class="page-section hidden animate-fade-in">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-14">
                 <div class="app-card">
@@ -259,7 +231,6 @@
                     
                     <div class="relative h-[550px] sm:h-[600px] md:h-[650px] p-4 flex justify-center items-center">
                         <div class="relative w-full max-w-xl h-full">
-                            <!-- Diagram elements -->
                             <div class="entity-box" style="top: 50%; left: 50%; transform: translate(-50%, -50%);">TRANSACTION</div>
                             <div class="entity-box" style="top: 20%; left: 50%; transform: translate(-50%, -50%);">VOIE</div>
                             <div class="entity-box" style="top: 50%; left: 10%; transform: translate(-50%, -50%);">VEHICULE</div>
@@ -267,7 +238,6 @@
                             <div class="entity-box" style="top: 0%; left: 10%; transform: translate(-50%, -50%);">ABONNE</div>
                             <div class="entity-box" style="top: 80%; left: 50%; transform: translate(-50%, -50%);">EMPLOYE</div>
                             <div class="entity-box" style="top: 80%; left: 90%; transform: translate(-50%, -50%);">REDDITION</div>
-                            <!-- Connectors -->
                             <div class="connector-line" style="top: 12%; left: 10%; width: 2px; height: 8%;"></div>
                             <div class="connector-line" style="top: 32%; left: 10%; width: 2px; height: 18%;"></div>
                             <div class="connector-line" style="top: 50%; left: 24%; width: 26%; height: 2px;"></div>
@@ -288,7 +258,6 @@
             </div>
         </section>
 
-        <!-- DICTIONNAIRE SECTION (From Explorer) -->
         <section id="dictionnaire" class="page-section hidden animate-fade-in">
             <div class="app-card mb-12">
                 <h2 class="text-4xl font-extrabold text-emerald-700 mb-4">Dictionnaire des Données <span class="text-xl text-slate-400 ml-2">(Entités et Attributs)</span></h2>
@@ -325,7 +294,6 @@
             </div>
         </section>
 
-        <!-- LOGIQUE METIER SECTION (From Explorer) -->
         <section id="logique" class="page-section hidden animate-fade-in">
             <div class="app-card mb-12">
                 <h2 class="text-4xl font-extrabold text-emerald-700 mb-4">Logique Métier (Fonctions TCS)</h2>
@@ -350,7 +318,7 @@
                         </div>
                         <div class="border-t border-slate-100 pt-5">
                             <h4 class="text-2xl font-bold text-slate-900 mb-2">TCS COMPTAGE</h4>
-                            <p class="text-slate-600 mb-3 leading-relaxed">Acquisition de données non-financières pour les abonnés (classification, comptage d'essieux via borne VIDAR) pour validation du tarif ou statistiques de flux.</p>
+                            <p class="text-slate-600 mb-3 leading-relaxed">Acquisition de données non-financières pour les abonnés (classification, comptage d'essieux  via borne VIDAR) pour validation du tarif ou statistiques de flux.</p>
                             <div class="flex flex-wrap gap-2">
                                 <span class="badge-gray">TRANSACTION</span>
                                 <span class="badge-gray">VOIE</span>
@@ -359,6 +327,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="app-card border-t-8 border-slate-600">
                     <h3 class="text-3xl font-extrabold text-slate-800 mb-6">Volet NON ABONNEMENT - Gestion des Recettes & Supervision</h3>
                     <div class="space-y-8">
@@ -401,286 +370,227 @@
                 </div>
             </div>
         </section>
-
     </main>
 
-    <!-- Footer -->
     <footer class="text-center p-8 mt-16 bg-white shadow-inner text-slate-500 text-sm border-t border-slate-200">
-        © 2025 NOISIM Engineering Services - Tous droits réservés.
+        © 2025 NOISIM Engineering Services - Tous droits réservés. <br>
+        Application d'exploration du MCD - Optimisée pour le système TCS.
     </footer>
 
-    <!-- Dictionnaire Data Definitions -->
     <script>
-        const DICTIONARY_DATA = {
+        // DATA MODEL DEFINITION
+        const modelData = {
             CLIENT: {
-                title: "Entité: CLIENT",
-                description: "Représente les clients enregistrés (personnes physiques ou morales) qui utilisent les services de péage, qu'ils soient abonnés ou non. C'est l'entité de base pour la facturation et la gestion des comptes.",
                 attributes: [
-                    { name: "id_client", type: "VARCHAR(15)", constraint: "PK", description: "Identifiant unique du client." },
-                    { name: "nom_client", type: "VARCHAR(100)", constraint: "NN", description: "Nom complet ou raison sociale du client." },
-                    { name: "adresse", type: "VARCHAR(255)", constraint: "NN", description: "Adresse physique ou postale du client." },
-                    { name: "telephone", type: "VARCHAR(20)", constraint: "UQ, NN", description: "Numéro de téléphone du client." },
-                    { name: "email", type: "VARCHAR(100)", constraint: "UQ", description: "Adresse e-mail (pour notifications)." },
-                    { name: "type_client", type: "ENUM('PHYSIQUE', 'MORALE')", constraint: "NN", description: "Indique si le client est une personne physique ou morale." }
+                    { name: "ClientID", type: "Numérique/Chaîne", constraints: "Clé Primaire" },
+                    { name: "Nom", type: "Chaîne", constraints: "Obligatoire" },
+                    { name: "Prenom", type: "Chaîne", constraints: "Obligatoire" },
+                    { name: "Email", type: "Chaîne", constraints: "Unique, Obligatoire" },
+                    { name: "MotDePasseHash", type: "Chaîne (Min 64 caractères)", constraints: "Obligatoire, Stockage du Hash (sécurité)" }, // MODIFIÉ
+                    { name: "Telephone", type: "Chaîne", constraints: "" },
+                    { name: "DateCreationCompte", type: "Date", constraints: "Obligatoire" },
+                    { name: "StatutClient", type: "Chaîne", constraints: "Obligatoire (En Attente/Validé). Validé par Administrateur lors de l'enregistrement." } // AJOUTÉ
                 ],
-                relationships: [
-                    "Peut posséder plusieurs VEHICULE (1, n)",
-                    "Est la base de l'entité ABONNE (0, 1) hérite (ABONNE est un sous-type de CLIENT)"
+                relations: [
+                    "Peut être un <strong>ABONNE</strong> (0,1) via `EST_ABONNE` (Héritage)",
+                    "Possède <strong>VEHICULE</strong> (0,N) via `POSSEDE` (Association)"
                 ]
             },
             ABONNE: {
-                title: "Entité: ABONNE",
-                description: "Sous-type de CLIENT bénéficiant d'un compte de télépéage prépayé ou post-payé (badge, RFID). Gère le solde et le statut du compte abonné.",
                 attributes: [
-                    { name: "id_abonne", type: "VARCHAR(15)", constraint: "PK, FK (CLIENT)", description: "Clé primaire et étrangère vers l'entité CLIENT." },
-                    { name: "solde_compte", type: "DECIMAL(10, 2)", constraint: "NN, > 0", description: "Solde actuel du compte (prépayé/post-payé)." },
-                    { name: "statut_abonnement", type: "ENUM('ACTIF', 'SUSPENDU', 'RESILIE')", constraint: "NN", description: "Statut de l'abonnement télépéage." },
-                    { name: "badge_rfid", type: "VARCHAR(30)", constraint: "UQ, NN", description: "Identifiant physique du badge télépéage." }
+                    { name: "AbonneID", type: "Numérique/Chaîne", constraints: "Clé Primaire" },
+                    { name: "ClientID", type: "Numérique/Chaîne", constraints: "Clé Étrangère (CLIENT), Obligatoire" },
+                    { name: "StatutAbonnement", type: "Chaîne", constraints: "Obligatoire (Actif/Inactif)" },
+                    { name: "DateDebutAbonnement", type: "Date", constraints: "Obligatoire" },
+                    { name: "DateFinAbonnement", type: "Date", constraints: "Obligatoire" },
+                    { name: "SoldePrepaye", type: "Monétaire", constraints: "Peut être nul" },
+                    { name: "DateValidationAdmin", type: "Date", constraints: "Date de validation de l'abonnement par un Administrateur." } // AJOUTÉ
                 ],
-                relationships: [
-                    "Est associé à un seul CLIENT (1, 1)",
-                    "Est impliqué dans des TRANSACTION de type 'Télépéage' (1, n)"
+                relations: [
+                    "Est un <strong>CLIENT</strong> (1,1) via `EST_ABONNE` (Héritage)",
+                    "Géré par <strong>EMPLOYE (Admin)</strong> (0,N) via `GERE_ABONNEMENT` (Association)"
                 ]
             },
             VEHICULE: {
-                title: "Entité: VEHICULE",
-                description: "Enregistrement des véhicules autorisés et de leurs caractéristiques (classification) pour la tarification et le contrôle.",
                 attributes: [
-                    { name: "immatriculation", type: "VARCHAR(20)", constraint: "PK", description: "Numéro d'immatriculation unique du véhicule." },
-                    { name: "id_client", type: "VARCHAR(15)", constraint: "FK (CLIENT), NN", description: "Propriétaire du véhicule (lien vers CLIENT)." },
-                    { name: "classe", type: "VARCHAR(10)", constraint: "NN", description: "Classe de tarification (ex: CL1, CL2) déterminée par la borne VIDAR." },
-                    { name: "marque_modele", type: "VARCHAR(100)", constraint: "NN", description: "Marque et modèle du véhicule." },
-                    { name: "nombre_essieux", type: "INT", constraint: "NN", description: "Nombre d'essieux déclaré (pour comparaison avec VIDAR)." }
+                    { name: "VehiculeID", type: "Numérique/Chaîne", constraints: "Clé Primaire" },
+                    { name: "ClientID", type: "Numérique/Chaîne", constraints: "Clé Étrangère (CLIENT), Obligatoire" },
+                    { name: "PlaqueImmatriculation", type: "Chaîne", constraints: "Unique, Obligatoire" },
+                    { name: "TypeVehicule", type: "Chaîne", constraints: "Obligatoire (Léger, Lourd...)" },
+                    { name: "NbEssieux", type: "Entier", constraints: "Obligatoire" }
                 ],
-                relationships: [
-                    "Doit être possédé par un CLIENT (1, 1)",
-                    "Est l'objet d'une ou plusieurs TRANSACTION (1, n)"
+                relations: [
+                    "Appartient à <strong>CLIENT</strong> (1,1) via `POSSEDE` (Association)",
+                    "Effectue des <strong>TRANSACTION</strong> (1,N) via `PASSAGE` (Association)"
                 ]
             },
             VOIE: {
-                title: "Entité: VOIE",
-                description: "Représente une voie de péage physique (portail/barrière). Contient des informations sur son type, son statut opérationnel et les équipements associés.",
                 attributes: [
-                    { name: "id_voie", type: "INT", constraint: "PK", description: "Identifiant unique de la voie." },
-                    { name: "nom_gare", type: "VARCHAR(50)", constraint: "NN", description: "Nom de la gare de péage à laquelle la voie appartient." },
-                    { name: "type_voie", type: "ENUM('DEDIEE', 'MIXTE', 'MANUELLE', 'AUTO')", constraint: "NN", description: "Type de voie (ex: Télépéage dédié, Manuelle)." },
-                    { name: "statut_operationnel", type: "ENUM('OUVERTE', 'FERMEE', 'MAINTENANCE')", constraint: "NN", description: "Statut actuel de la voie." }
+                    { name: "VoieID", type: "Numérique/Chaîne", constraints: "Clé Primaire" },
+                    { name: "NomVoie", type: "Chaîne", constraints: "Unique" },
+                    { name: "TypeVoie", type: "Chaîne", constraints: "Obligatoire (Télépéage/Manuelle)" },
+                    { name: "StatutVoie", type: "Chaîne", constraints: "Obligatoire (Ouvert/Fermé)" }
                 ],
-                relationships: [
-                    "Est le lieu d'une ou plusieurs TRANSACTION (1, n)"
+                relations: [
+                    "Enregistre des <strong>TRANSACTION</strong> (0,N) via `UTILISE` (Association)",
+                    "Gérée par <strong>EMPLOYE (Percepteur)</strong> (0,1) via `GERE_VOIE` (Association)"
                 ]
             },
             TRANSACTION: {
-                title: "Entité: TRANSACTION",
-                description: "Enregistrement d'un passage au péage. C'est l'événement central du système, liant le véhicule, la voie, l'employé et l'éventuel abonné.",
                 attributes: [
-                    { name: "id_transaction", type: "BIGINT", constraint: "PK", description: "Identifiant unique de la transaction (horodaté)." },
-                    { name: "immatriculation", type: "VARCHAR(20)", constraint: "FK (VEHICULE), NN", description: "Véhicule impliqué dans la transaction." },
-                    { name: "id_voie", type: "INT", constraint: "FK (VOIE), NN", description: "Voie de péage où la transaction a eu lieu." },
-                    { name: "id_employe", type: "VARCHAR(10)", constraint: "FK (EMPLOYE, si manuel)", description: "Employé qui a géré la transaction (null si automatique)." },
-                    { name: "montant_paye", type: "DECIMAL(10, 2)", constraint: "NN, >= 0", description: "Montant réel payé par l'usager." },
-                    { name: "type_paiement", type: "ENUM('ESPECE', 'CARTE', 'ABONNEE', 'GRATUIT')", constraint: "NN", description: "Méthode de paiement utilisée." },
-                    { name: "date_heure", type: "DATETIME", constraint: "NN", description: "Horodatage précis de la transaction." }
+                    { name: "TransactionID", type: "Numérique/Chaîne", constraints: "Clé Primaire" },
+                    { name: "VoieID", type: "Numérique/Chaîne", constraints: "Clé Étrangère (VOIE)" },
+                    { name: "PlaqueImmatriculation", type: "Chaîne", constraints: "Obligatoire (Correspond à VEHICULE)" },
+                    { name: "TypePaiement", type: "Chaîne", constraints: "Obligatoire (Espèce, Carte, Badge)" },
+                    { name: "MontantPaye", type: "Monétaire", constraints: "Obligatoire" },
+                    { name: "DateHeurePassage", type: "Date/Heure", constraints: "Obligatoire" },
+                    { name: "ClassificationVehicule", type: "Chaîne", constraints: "Déterminée par TCS COMPTAGE" }
                 ],
-                relationships: [
-                    "Est lié à un VEHICULE (1, 1)",
-                    "Est situé dans une VOIE (1, 1)",
-                    "Peut être géré par un EMPLOYE (0, 1)"
+                relations: [
+                    "Concerne un <strong>VEHICULE</strong> (1,1) via `PASSAGE` (Association)",
+                    "Utilise une <strong>VOIE</strong> (1,1) via `UTILISE` (Association)",
+                    "Supervisée par <strong>EMPLOYE (Superviseur)</strong> (0,N) via `SUPERVISE` (Association)"
                 ]
             },
             EMPLOYE: {
-                title: "Entité: EMPLOYE",
-                description: "Gestion des employés (percepteurs, superviseurs, administrateurs) qui opèrent le système et gèrent les caisses/redditions.",
                 attributes: [
-                    { name: "id_employe", type: "VARCHAR(10)", constraint: "PK", description: "Identifiant unique de l'employé." },
-                    { name: "nom", type: "VARCHAR(50)", constraint: "NN", description: "Nom de famille de l'employé." },
-                    { name: "prenom", type: "VARCHAR(50)", constraint: "NN", description: "Prénom de l'employé." },
-                    { name: "role", type: "ENUM('PERCEPTEUR', 'SUPERVISEUR', 'ADMINISTRATEUR')", constraint: "NN", description: "Rôle de l'employé dans le système." },
-                    { name: "statut", type: "ENUM('ACTIF', 'CONGE', 'INACTIF')", constraint: "NN", description: "Statut actuel de l'employé." }
+                    { name: "EmployeID", type: "Numérique/Chaîne", constraints: "Clé Primaire" },
+                    { name: "Nom", type: "Chaîne", constraints: "Obligatoire" },
+                    { name: "Role", type: "Chaîne", constraints: "Obligatoire (Admin, Percepteur, Superviseur)" },
+                    { name: "Matricule", type: "Chaîne", constraints: "Unique, Obligatoire" },
+                    { name: "MotDePasseHash", type: "Chaîne (Min 64 caractères)", constraints: "Obligatoire, Stockage du Hash (sécurité)" }, // MODIFIÉ
+                    { name: "StatutCompte", type: "Chaîne", constraints: "Obligatoire (Actif/Bloqué). Activé par un Administrateur." } // AJOUTÉ
                 ],
-                relationships: [
-                    "Peut effectuer plusieurs TRANSACTION (0, n)",
-                    "Peut effectuer une ou plusieurs REDDITION (0, n)"
+                relations: [
+                    "Peut faire une <strong>REDDITION</strong> (si Percepteur) (0,N) via `FAIT_REDDITION`",
+                    "Peut gérer des <strong>VOIE</strong> (si Percepteur) (0,N) via `GERE_VOIE`",
+                    "Peut superviser des <strong>TRANSACTION</strong> (si Superviseur) (0,N) via `SUPERVISE`"
                 ]
             },
             REDDITION: {
-                title: "Entité: REDDITION",
-                description: "Procédure de fin de quart où l'employé déclare et remet les recettes collectées. Permet le contrôle financier.",
                 attributes: [
-                    { name: "id_reddition", type: "BIGINT", constraint: "PK", description: "Identifiant unique de la reddition." },
-                    { name: "id_employe", type: "VARCHAR(10)", constraint: "FK (EMPLOYE), NN", description: "Employé effectuant la reddition." },
-                    { name: "date_heure_debut", type: "DATETIME", constraint: "NN", description: "Heure de début du quart de travail." },
-                    { name: "date_heure_fin", type: "DATETIME", constraint: "NN", description: "Heure de fin du quart de travail." },
-                    { name: "montant_declare", type: "DECIMAL(10, 2)", constraint: "NN, >= 0", description: "Montant total des recettes déclarées par l'employé." },
-                    { name: "statut_validation", type: "ENUM('EN_ATTENTE', 'VALIDE', 'REJETEE')", constraint: "NN", description: "Statut de validation par le superviseur." }
+                    { name: "RedditionID", type: "Numérique/Chaîne", constraints: "Clé Primaire" },
+                    { name: "EmployeID", type: "Numérique/Chaîne", constraints: "Clé Étrangère (EMPLOYE), Obligatoire" },
+                    { name: "DateHeureReddition", type: "Date/Heure", constraints: "Obligatoire" },
+                    { name: "MontantDeclare", type: "Monétaire", constraints: "Obligatoire" },
+                    { name: "MontantCompte", type: "Monétaire", constraints: "Résultat du contrôle" },
+                    { name: "Statut", type: "Chaîne", constraints: "Validé, En Attente, Écart" }
                 ],
-                relationships: [
-                    "Est effectuée par un EMPLOYE (1, 1)"
+                relations: [
+                    "Effectuée par <strong>EMPLOYE (Percepteur)</strong> (1,1) via `FAIT_REDDITION` (Association)"
                 ]
             }
         };
-    </script>
-    
-    <!-- JavaScript for Interactions and Charts -->
-    <script>
-        // --- Navigation Logic ---
-        const pageSections = document.querySelectorAll('.page-section');
-        const navLinks = document.querySelectorAll('.nav-link');
-        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-        const mainNavigationLinks = document.getElementById('main-navigation-links');
-        const menuIcon = document.getElementById('menu-icon');
-        const closeIcon = document.getElementById('close-icon');
 
-        // Toggle mobile menu visibility and icon
-        function toggleMobileMenu() {
-            const isMenuOpen = mainNavigationLinks.classList.toggle('hidden');
-            menuIcon.classList.toggle('hidden', !isMenuOpen);
-            closeIcon.classList.toggle('hidden', isMenuOpen);
-        }
-
-        // Section change and active link update
-        function showSection(targetId) {
-            // Hide all sections
-            pageSections.forEach(section => {
-                section.classList.add('hidden');
-            });
-
-            // Show target section
-            const targetSection = document.getElementById(targetId);
-            if (targetSection) {
-                targetSection.classList.remove('hidden');
-            }
-
-            // Update active link state
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.dataset.target === targetId) {
-                    link.classList.add('active');
-                }
-            });
-
-            // Close mobile menu after selection
-            if (window.innerWidth < 768 && !mainNavigationLinks.classList.contains('hidden')) {
-                toggleMobileMenu();
-            }
-        }
-
-        // Event listener for navigation links
-        navLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                const targetId = e.currentTarget.dataset.target;
-                showSection(targetId);
-            });
-        });
-
-        // Event listener for mobile menu toggle button
-        mobileMenuToggle.addEventListener('click', toggleMobileMenu);
-
-        // Initial setup: show the default section (Accueil)
-        document.addEventListener('DOMContentLoaded', () => {
-            showSection('accueil');
-        });
-
-        // --- Dictionnaire Logic ---
-        const dictLinks = document.querySelectorAll('.dict-link');
-        const entityDetailContainer = document.getElementById('entityDetailContainer');
-
-        function displayEntityDetails(entityName) {
-            const data = DICTIONARY_DATA[entityName];
-
-            if (!data) {
-                entityDetailContainer.innerHTML = `<h3 class="text-2xl font-bold text-red-600">Erreur: Entité non trouvée.</h3>`;
-                return;
-            }
-
-            // HTML for details
-            let html = `
-                <h3 class="text-4xl font-extrabold text-emerald-700 mb-2">${data.title}</h3>
-                <p class="text-xl text-slate-600 mb-8 leading-relaxed border-b pb-4">${data.description}</p>
-                
-                <h4 class="text-2xl font-bold text-slate-800 mb-4">Attributs et Contraintes</h4>
-                <div class="overflow-x-auto w-full mb-10">
-                    <table class="min-w-full bg-white rounded-lg shadow overflow-hidden">
+        // --- Dictionnaire Functions ---
+        const generateTableHTML = (attributes) => {
+            let rows = attributes.map(attr => `
+                <tr class="border-b border-slate-100 hover:bg-emerald-50/50 transition-colors duration-100">
+                    <td class="py-3 px-4 font-medium ${attr.constraints.includes('Clé Primaire') ? 'text-emerald-700 font-extrabold' : attr.constraints.includes('Clé Étrangère') ? 'text-slate-700 font-semibold' : 'text-slate-800'} text-sm sm:text-base">${attr.name}</td>
+                    <td class="py-3 px-4 text-slate-600 text-sm sm:text-base">${attr.type}</td>
+                    <td class="py-3 px-4 text-slate-500 text-sm sm:text-base">${attr.constraints || '---'}</td>
+                </tr>
+            `).join('');
+            return `
+                <div class="overflow-x-auto rounded-xl border border-slate-200">
+                    <table class="w-full min-w-max text-left">
                         <thead class="bg-slate-50 border-b border-slate-200">
                             <tr>
-                                <th class="text-left py-3 px-4 uppercase text-sm font-semibold text-slate-600">Nom</th>
-                                <th class="text-left py-3 px-4 uppercase text-sm font-semibold text-slate-600">Type</th>
-                                <th class="text-left py-3 px-4 uppercase text-sm font-semibold text-slate-600">Contrainte</th>
-                                <th class="text-left py-3 px-4 uppercase text-sm font-semibold text-slate-600">Description</th>
+                                <th class="py-3 px-4 text-xs sm:text-sm font-bold text-slate-600 uppercase tracking-wider">Attribut</th>
+                                <th class="py-3 px-4 text-xs sm:text-sm font-bold text-slate-600 uppercase tracking-wider">Type</th>
+                                <th class="py-3 px-4 text-xs sm:text-sm font-bold text-slate-600 uppercase tracking-wider">Contrainte / Note</th>
                             </tr>
                         </thead>
-                        <tbody class="divide-y divide-slate-100">
-                            ${data.attributes.map(attr => `
-                                <tr class="hover:bg-slate-50">
-                                    <td class="py-3 px-4 text-slate-800 font-medium">${attr.name}</td>
-                                    <td class="py-3 px-4 text-slate-600 text-sm">${attr.type}</td>
-                                    <td class="py-3 px-4 text-sm">
-                                        <span class="inline-block px-3 py-1 text-xs font-bold rounded-full ${attr.constraint.includes('PK') ? 'bg-red-100 text-red-800' : attr.constraint.includes('FK') ? 'bg-blue-100 text-blue-800' : attr.constraint.includes('NN') ? 'bg-amber-100 text-amber-800' : 'bg-slate-100 text-slate-600'}">
-                                            ${attr.constraint}
-                                        </span>
-                                    </td>
-                                    <td class="py-3 px-4 text-slate-500 text-sm">${attr.description}</td>
-                                </tr>
-                            `).join('')}
+                        <tbody>
+                            ${rows}
                         </tbody>
                     </table>
                 </div>
-
-                <h4 class="text-2xl font-bold text-slate-800 mb-4">Relations Clés</h4>
-                <ul class="list-disc pl-6 space-y-2 text-slate-600">
-                    ${data.relationships.map(rel => `
-                        <li>${rel}</li>
-                    `).join('')}
-                </ul>
             `;
-            
-            entityDetailContainer.innerHTML = html;
-
-            // Update active sidebar link
-            dictLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.dataset.entity === entityName) {
+        };
+        const generateRelationsHTML = (relations) => {
+            let items = relations.map(rel => `
+                <li class="relative pl-6 py-1 text-slate-700 text-base leading-relaxed">
+                    <span class="absolute left-0 top-3.5 w-2 h-2 bg-emerald-600 rounded-full shadow-md"></span>
+                    ${rel}
+                </li>
+            `).join('');
+            return `<ul class="space-y-3 p-4 bg-slate-50 rounded-xl border border-slate-200">${items}</ul>`;
+        };
+        const entityDetailContainer = document.getElementById('entityDetailContainer');
+        const dictLinks = document.querySelectorAll('.dict-link');
+        dictLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                const entityName = link.dataset.entity;
+                const data = modelData[entityName];
+                if (data) {
+                    entityDetailContainer.innerHTML = `
+                        <h3 class="text-4xl font-extrabold text-emerald-700 mb-8 border-b border-slate-200 pb-3">${entityName} <span class="text-slate-400 font-medium">| Entité</span></h3>
+                        <div class="mb-10">
+                            <h4 class="text-2xl font-bold text-slate-800 mb-4 border-l-4 border-orange-500 pl-3">Structure des Attributs</h4>
+                            ${generateTableHTML(data.attributes)}
+                        </div>
+                        <div>
+                            <h4 class="text-2xl font-bold text-slate-800 mb-4 border-l-4 border-red-600 pl-3">Relations</h4>
+                            ${generateRelationsHTML(data.relations)}
+                        </div>
+                    `;
+                    dictLinks.forEach(l => l.classList.remove('active'));
                     link.classList.add('active');
                 }
             });
-        }
+        });
 
-        dictLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                const entityName = e.currentTarget.dataset.entity;
-                displayEntityDetails(entityName);
+        // --- Navigation Functions ---
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('.page-section');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                const targetId = link.dataset.target;
+                sections.forEach(section => {
+                    section.classList.add('hidden');
+                    section.classList.remove('animate-fade-in');
+                });
+                const targetSection = document.getElementById(targetId);
+                targetSection.classList.remove('hidden');
+                targetSection.classList.add('animate-fade-in');
+                navLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
             });
         });
 
-
-        // --- Chart.js Logic ---
-        const initializeCharts = () => {
-             // Common options for all charts
-            const commonChartOptions = {
-                responsive: true,
-                maintainAspectRatio: false,
+        // --- Chart.js Initialization ---
+        
+        // Tooltip Callback for Infographic charts (handles array labels)
+        const createInfographicTooltipCallback = () => {
+            return {
                 plugins: {
-                    legend: {
-                        labels: {
-                            font: {
-                                family: 'Inter',
+                    tooltip: {
+                        callbacks: {
+                            title: function(tooltipItems) {
+                                const item = tooltipItems[0];
+                                let label = item.chart.data.labels[item.dataIndex];
+                                if (Array.isArray(label)) {
+                                    return label.join(' ');
+                                } else {
+                                    return label;
+                                }
                             }
                         }
-                    },
-                    tooltip: {
-                        titleFont: { family: 'Inter' },
-                        bodyFont: { family: 'Inter' },
-                        backgroundColor: 'rgba(30, 41, 59, 0.85)',
-                        padding: 12,
-                        cornerRadius: 8,
                     }
                 }
             };
-            
-            // Tooltip callback for MCD Chart
-            const createMCDTooltipCallback = () => ({
+        };
+
+        // Tooltip Callback for MCD Stat chart
+        const createMCDTooltipCallback = () => {
+            return {
                 plugins: {
                     tooltip: {
+                        backgroundColor: 'rgba(30, 41, 59, 0.9)',
+                        titleFont: { weight: 'bold', size: 16 },
+                        bodyFont: { size: 14 },
+                        padding: 12,
                         callbacks: {
                             label: function(context) {
                                 let label = context.label || '';
@@ -695,33 +605,29 @@
                         }
                     }
                 }
-            });
+            };
+        };
 
+        const commonChartOptions = {
+            responsive: true,
+            maintainAspectRatio: false
+        };
 
-            // 1. Accuracy Chart (Bar)
+        // --- Chart Initializers ---
+        const initializeCharts = () => {
+            // 1. Accuracy Chart (Donut)
             const accuracyCtx = document.getElementById('accuracyChart').getContext('2d');
             new Chart(accuracyCtx, {
-                type: 'bar',
+                type: 'doughnut',
                 data: {
-                    labels: ['Classe 1', 'Classe 2', 'Classe 3', 'Classe 4', 'Classe 5'],
+                    labels: ['Précision VIDAR AI', 'Marge d\'Erreur (Anciens Systèmes)'],
                     datasets: [{
-                        label: 'Précision de l\'ancien système (%)',
-                        data: [92, 85, 90, 78, 88],
-                        backgroundColor: 'rgba(249, 115, 22, 0.7)',
-                        borderColor: 'rgb(249, 115, 22)',
-                        borderWidth: 1,
-                        borderRadius: 5
-                    },
-                    {
-                        label: 'Précision VIDAR (%)',
-                        data: [99.5, 98.2, 99.1, 97.5, 98.9],
-                        backgroundColor: 'rgba(16, 185, 129, 0.7)',
-                        borderColor: 'rgb(16, 185, 129)',
-                        borderWidth: 1,
-                        borderRadius: 5
+                        data: [99.8, 15.0], 
+                        backgroundColor: ['#52b788', '#e63946'],
+                        hoverOffset: 4
                     }]
                 },
-                options: { ...commonChartOptions, scales: { y: { beginAtZero: false, suggestedMin: 70, suggestedMax: 100, ticks: { callback: (value) => value + '%'}, grid: { color: 'rgba(0,0,0,0.05)'}} }}
+                options: { ...commonChartOptions, ...createInfographicTooltipCallback(), plugins: { ...createInfographicTooltipCallback().plugins, legend: { position: 'bottom' }}}
             });
 
             // 2. Revenue Chart (Line)
@@ -729,42 +635,39 @@
             new Chart(revenueCtx, {
                 type: 'line',
                 data: {
-                    labels: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil'],
+                    labels: ['Année -2', 'Année -1', 'Installation TCS', 'Année +1', 'Année +2'],
                     datasets: [{
-                        label: 'Revenus Avant TCS (Millions)',
-                        data: [45, 48, 47, 49, 51, 50, 52],
-                        borderColor: 'rgb(255, 99, 132)',
-                        backgroundColor: 'rgba(255, 99, 132, 0.1)',
-                        tension: 0.4
-                    },
-                    {
-                        label: 'Revenus Après TCS (Millions)',
-                        data: [47, 50, 52, 53, 55, 54, 57],
-                        borderColor: 'rgb(16, 185, 129)',
-                        backgroundColor: 'rgba(16, 185, 129, 0.1)',
-                        tension: 0.4,
-                        fill: true
+                        label: 'Recettes Collectées (en M FCFA)',
+                        data: [1200, 1250, 1220, 1450, 1700],
+                        borderColor: '#52b788',
+                        backgroundColor: 'rgba(82, 183, 136, 0.1)',
+                        fill: true,
+                        tension: 0.1
+                    }, {
+                        label: 'Pertes Estimées (en M FCFA)',
+                        data: [200, 180, 190, 50, 30],
+                        borderColor: '#e63946',
+                        backgroundColor: 'rgba(230, 57, 70, 0.1)',
+                        fill: true,
+                        tension: 0.1
                     }]
                 },
-                options: { ...commonChartOptions, scales: { y: { stacked: true, beginAtZero: false, ticks: { callback: (value) => value + 'M'}, grid: { color: 'rgba(0,0,0,0.05)'} } }}
+                options: { ...commonChartOptions, ...createInfographicTooltipCallback() }
             });
-            
-            // 3. Traffic Chart (Bar)
+
+            // 3. Traffic Chart (Stacked Bar)
             const trafficCtx = document.getElementById('trafficChart').getContext('2d');
             new Chart(trafficCtx, {
                 type: 'bar',
                 data: {
-                    labels: ['CL1: Léger', 'CL2: Intermédiaire', 'CL3: Poids Lourd 2 essieux', 'CL4: Poids Lourd 3+ essieux', 'CL5: Moto'],
-                    datasets: [{
-                        label: 'Volume de Trafic (%)',
-                        data: [65, 15, 8, 10, 2],
-                        backgroundColor: ['rgba(59, 130, 246, 0.8)', 'rgba(249, 115, 22, 0.8)', 'rgba(16, 185, 129, 0.8)', 'rgba(30, 41, 59, 0.8)', 'rgba(239, 68, 68, 0.8)'],
-                        borderColor: 'rgba(0,0,0,0.1)',
-                        borderWidth: 1,
-                        borderRadius: 5
-                    }]
+                    labels: ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'],
+                    datasets: [
+                        { label: 'Classe A (Léger)', data: [1200, 1100, 1150, 1300, 1500, 1800, 1600], backgroundColor: '#a8dadc' },
+                        { label: 'Classe B (Moyen)', data: [400, 450, 420, 500, 600, 550, 500], backgroundColor: '#f4a261' },
+                        { label: ['Classe C', '(Poids Lourd)'], data: [200, 220, 210, 250, 300, 280, 260], backgroundColor: '#e63946' }
+                    ]
                 },
-                options: { ...commonChartOptions, indexAxis: 'y', scales: { x: { stacked: true, beginAtZero: true, ticks: { callback: (value) => value + '%'}, grid: { color: 'rgba(0,0,0,0.05)'} } }}
+                options: { ...commonChartOptions, ...createInfographicTooltipCallback(), scales: { x: { stacked: true }, y: { stacked: true, beginAtZero: true }}}
             });
 
             // 4. MCD Stats Chart (Doughnut)
@@ -788,9 +691,11 @@
         // --- Initialization ---
         document.addEventListener('DOMContentLoaded', () => {
             initializeCharts();
-            // Ensure initial active state for Dictionnaire sidebar
-            const initialEntity = 'CLIENT';
-            displayEntityDetails(initialEntity);
+            document.getElementById('accueil').classList.remove('hidden');
+            if (dictLinks.length > 0) {
+                // Ensure first dictionary entity is selected by default after load
+                dictLinks[0].click(); 
+            }
         });
     </script>
 </body>
