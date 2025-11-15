@@ -17,10 +17,7 @@
 
         /* Navigation Links */
         .nav-link {
-            /* Mettre à jour la taille du texte pour être plus compact sur mobile */
-            @apply px-3 py-2 rounded-xl text-slate-700 font-semibold hover:bg-emerald-100 hover:text-emerald-800 transition-all duration-200 text-sm; /* text-sm par défaut */
-            /* La taille du texte passe à md:text-base sur desktop */
-            @apply md:text-base; 
+            @apply px-3 py-2 rounded-xl text-slate-700 font-semibold hover:bg-emerald-100 hover:text-emerald-800 transition-all duration-200 text-sm md:text-base;
         }
         .nav-link.active {
             @apply bg-emerald-600 text-white hover:bg-emerald-700 shadow-md shadow-emerald-400/50;
@@ -34,7 +31,7 @@
             @apply bg-emerald-50 text-emerald-800 font-bold border-l-4 border-emerald-600;
         }
 
-        /* Chart Containers - Ajustements mineurs */
+        /* Chart Containers */
         .chart-container-mcd {
             position: relative;
             width: 100%;
@@ -47,19 +44,17 @@
         .chart-container-large {
             position: relative;
             width: 100%;
-            /* max-width réduit légèrement pour une meilleure intégration sur les tablettes */
-            max-width: 550px; 
+            max-width: 600px;
             margin-left: auto;
             margin-right: auto;
             height: 350px;
             max-height: 400px;
         }
-         @media (min-width: 768px) {
-             .chart-container-large {
-                 height: 400px;
-                 max-width: 600px; /* Revenir à 600px sur desktop */
-             }
-         }
+          @media (min-width: 768px) {
+            .chart-container-large {
+                height: 400px;
+            }
+        }
         .chart-container-small {
             position: relative;
             width: 100%;
@@ -72,7 +67,7 @@
 
         /* Entity Boxes (Diagram) */
         .entity-box {
-            @apply relative p-3 md:p-4 bg-emerald-700 border border-emerald-500 rounded-xl shadow-lg text-center text-xs sm:text-sm md:text-base font-semibold text-white z-10; /* Texte plus petit sur mobile */
+            @apply relative p-3 md:p-4 bg-emerald-700 border border-emerald-500 rounded-xl shadow-lg text-center text-sm md:text-base font-semibold text-white z-10;
         }
         .connector-line {
             @apply absolute bg-slate-500 opacity-60;
@@ -90,8 +85,7 @@
 
         /* Card Style */
         .app-card {
-            @apply bg-white p-6 rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100;
-            @apply md:p-8; /* Plus de padding sur desktop */
+            @apply bg-white p-6 md:p-8 rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100;
         }
 
         /* Infographic Flow Box Style */
@@ -115,19 +109,13 @@
 
     <nav class="sticky top-0 bg-white shadow-lg z-50">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20 md:h-24"> <div class="flex-shrink-0">
-                    <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-orange-500 to-emerald-600 drop-shadow-md">
+            <div class="flex items-center justify-between h-24">
+                <div class="flex-shrink-0">
+                    <h1 class="text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-orange-500 to-emerald-600 drop-shadow-md">
                         TCS Tableau de Bord
                     </h1>
                 </div>
-
-                <div class="md:hidden">
-                    <button id="menu-toggle" class="text-slate-500 hover:text-slate-800 focus:outline-none">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-                    </button>
-                </div>
-
-                <div class="hidden md:flex flex-wrap items-center justify-end space-x-2 sm:space-x-3" id="main-nav-links-desktop">
+                <div class="flex flex-wrap items-center justify-end space-x-2 sm:space-x-3">
                     <button class="nav-link active" data-target="accueil">Accueil</button>
                     <button class="nav-link" data-target="technologie">Technologie</button>
                     <button class="nav-link" data-target="impact">Impact</button>
@@ -136,41 +124,37 @@
                     <button class="nav-link" data-target="logique">Logique Métier</button>
                 </div>
             </div>
-            <div id="main-nav-links-mobile" class="hidden md:hidden pb-4 space-y-2 flex flex-col">
-                <button class="nav-link active" data-target="accueil">Accueil</button>
-                <button class="nav-link" data-target="technologie">Technologie</button>
-                <button class="nav-link" data-target="impact">Impact</button>
-                <button class="nav-link" data-target="schema_mcd">Schéma MCD</button>
-                <button class="nav-link" data-target="dictionnaire">Dictionnaire</button>
-                <button class="nav-link" data-target="logique">Logique Métier</button>
-            </div>
         </div>
     </nav>
 
     <main class="container mx-auto p-4 md:p-8 lg:p-12">
 
         <section id="accueil" class="page-section animate-fade-in space-y-14">
-            <div class="bg-gradient-to-r from-red-600 via-orange-500 to-emerald-600 p-6 md:p-12 rounded-3xl shadow-2xl text-white"> <h2 class="text-3xl md:text-5xl font-extrabold mb-4 drop-shadow-lg">TCS: La Révolution du Contrôle de Péage</h2> <p class="text-lg md:text-xl font-light opacity-95 leading-relaxed">
+            <div class="bg-gradient-to-r from-red-600 via-orange-500 to-emerald-600 p-8 md:p-12 rounded-3xl shadow-2xl text-white">
+                <h2 class="text-4xl md:text-5xl font-extrabold mb-4 drop-shadow-lg">TCS: La Révolution du Contrôle de Péage</h2>
+                <p class="text-xl font-light opacity-95 leading-relaxed">
                     Une solution complète par NOISIM pour gérer les recettes, optimiser la sécurité routière et assainir les caisses de l'État.
                 </p>
             </div>
 
             <div class="app-card">
-                 <h2 class="text-2xl md:text-3xl font-bold text-center mb-4">Une Solution, Deux Volets Opérationnels</h2> <p class="text-md md:text-lg text-gray-600 text-center max-w-3xl mx-auto mb-12">
+                 <h2 class="text-3xl font-bold text-center mb-4">Une Solution, Deux Volets Opérationnels</h2>
+                <p class="text-lg text-gray-600 text-center max-w-3xl mx-auto mb-12">
                     Le système TCS est conçu pour gérer nativement les deux types de flux de péage, assurant une couverture complète de vos opérations.
                 </p>
-                <div class="flex flex-col lg:flex-row justify-center items-center lg:items-stretch space-y-8 lg:space-y-0 lg:space-x-8"> <div class="flow-box flex-1">
+                <div class="flex flex-col md:flex-row justify-center items-center md:items-stretch space-y-8 md:space-y-0 md:space-x-8">
+                    <div class="flow-box flex-1">
                         <span class="text-5xl">💳</span>
-                        <h3 class="text-xl md:text-2xl font-semibold text-emerald-700 my-3">Volet ABONNEMENT</h3>
-                        <p class="text-gray-600 text-sm md:text-base">
+                        <h3 class="text-2xl font-semibold text-emerald-700 my-3">Volet ABONNEMENT</h3>
+                        <p class="text-gray-600">
                             Gestion optimisée des clients enregistrés. Inclut la gestion des comptes prépayés, le télépéage (via badge `ABONNEE`) et la réinitialisation de cartes (`RESETCARD`).
                         </p>
                     </div>
-                    
+                   
                     <div class="flow-box flex-1 border-orange-500">
                         <span class="text-5xl">🚗</span>
-                        <h3 class="text-xl md:text-2xl font-semibold text-orange-600 my-3">Volet NON ABONNEMENT</h3>
-                        <p class="text-gray-600 text-sm md:text-base">
+                        <h3 class="text-2xl font-semibold text-orange-600 my-3">Volet NON ABONNEMENT</h3>
+                        <p class="text-gray-600">
                             Capture et gestion des passages uniques. Traitement des paiements au comptant (espèces, carte) et application des tarifs basés sur la classification des véhicules.
                         </p>
                     </div>
@@ -180,57 +164,58 @@
 
         <section id="technologie" class="page-section hidden animate-fade-in">
              <div class="app-card overflow-hidden">
-                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                     <div class="p-4 md:p-8">
-                         <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Technologie Clé: La Borne VIDAR d'Essieux</h2>
-                         <p class="text-base md:text-lg text-gray-600 mb-6">
-                             Le cœur de notre précision. La borne VIDAR utilise une analyse d'image basée sur l'IA et un scan latéral pour un comptage d'essieux "ultra-précis" et une classification automatique des véhicules.
-                         </p>
-                         <div class="space-y-4">
-                             <div class="flex items-center">
-                                 <span class="text-emerald-500 text-xl mr-3">✔</span>
-                                 <span class="text-gray-700 text-sm md:text-base">Comptage précis, même des essieux relevables.</span>
-                             </div>
-                             <div class="flex items-center">
-                                 <span class="text-emerald-500 text-xl mr-3">✔</span>
-                                 <span class="text-gray-700 text-sm md:text-base">Classification automatique (gabarit, structure).</span>
-                             </div>
-                             <div class="flex items-center">
-                                 <span class="text-emerald-500 text-xl mr-3">✔</span>
-                                 <span class="text-gray-700 text-sm md:text-base">Optimisation des flux et automatisation de la tarification.</span>
-                             </div>
-                         </div>
-                     </div>
-                     <div class="bg-slate-50 p-6 md:p-8 flex items-center justify-center rounded-xl"> <div class="w-full">
-                             <h3 class="text-lg md:text-xl font-semibold text-center mb-4">Précision de Classification (VIDAR vs. Ancien)</h3>
-                             <div class="chart-container-small">
-                                 <canvas id="accuracyChart"></canvas>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-             </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="p-4 md:p-8">
+                        <h2 class="text-3xl font-bold text-gray-900 mb-4">Technologie Clé: La Borne VIDAR d'Essieux</h2>
+                        <p class="text-lg text-gray-600 mb-6">
+                            Le cœur de notre précision. La borne VIDAR utilise une analyse d'image basée sur l'IA et un scan latéral pour un comptage d'essieux "ultra-précis" et une classification automatique des véhicules.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <span class="text-emerald-500 text-2xl mr-3">✔</span>
+                                <span class="text-gray-700">Comptage précis, même des essieux relevables.</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-emerald-500 text-2xl mr-3">✔</span>
+                                <span class="text-gray-700">Classification automatique (gabarit, structure).</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-emerald-500 text-2xl mr-3">✔</span>
+                                <span class="text-gray-700">Optimisation des flux et automatisation de la tarification.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-slate-50 p-8 flex items-center justify-center rounded-xl">
+                        <div class="w-full">
+                            <h3 class="text-xl font-semibold text-center mb-4">Précision de Classification (VIDAR vs. Ancien)</h3>
+                            <div class="chart-container-small">
+                                <canvas id="accuracyChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section id="impact" class="page-section hidden animate-fade-in">
             <div class="app-card mb-12">
-                 <h2 class="text-3xl md:text-4xl font-extrabold text-emerald-700 mb-4">L'Impact du TCS en Données</h2>
-                 <p class="text-lg md:text-xl text-slate-600 leading-relaxed">
+                <h2 class="text-4xl font-extrabold text-emerald-700 mb-4">L'Impact du TCS en Données</h2>
+                <p class="text-xl text-slate-600 leading-relaxed">
                     La mise en place du système TCS a un impact direct et mesurable sur les recettes et la compréhension du trafic.
                 </p>
             </div>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-14">
                 <div class="app-card">
-                    <h3 class="text-xl md:text-2xl font-semibold text-center mb-6">Optimisation des Recettes</h3>
-                    <p class="text-gray-600 text-center mb-6 text-sm md:text-base">Réduction des pertes et augmentation des recettes collectées grâce à l'automatisation et au contrôle rigoureux.</p>
+                    <h3 class="text-2xl font-semibold text-center mb-6">Optimisation des Recettes</h3>
+                    <p class="text-gray-600 text-center mb-6">Réduction des pertes et augmentation des recettes collectées grâce à l'automatisation et au contrôle rigoureux.</p>
                     <div class="chart-container-large">
                         <canvas id="revenueChart"></canvas>
                     </div>
                 </div>
 
                 <div class="app-card">
-                    <h3 class="text-xl md:text-2xl font-semibold text-center mb-6">Analyse du Flux de Trafic (par VIDAR)</h3>
-                    <p class="text-gray-600 text-center mb-6 text-sm md:text-base">Classification automatique permettant une analyse fine du trafic par classe de véhicule pour la maintenance et la tarification.</p>
+                    <h3 class="text-2xl font-semibold text-center mb-6">Analyse du Flux de Trafic (par VIDAR)</h3>
+                    <p class="text-gray-600 text-center mb-6">Classification automatique permettant une analyse fine du trafic par classe de véhicule pour la maintenance et la tarification.</p>
                     <div class="chart-container-large">
                         <canvas id="trafficChart"></canvas>
                     </div>
@@ -241,10 +226,11 @@
         <section id="schema_mcd" class="page-section hidden animate-fade-in">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-14">
                 <div class="app-card">
-                    <h3 class="text-xl md:text-2xl font-bold text-slate-800 mb-6 border-b-2 border-emerald-100 pb-2 text-center">Schéma Conceptuel Abstrait</h3>
-                    <p class="text-slate-600 mb-8 text-center leading-relaxed text-sm md:text-base">Représentation des relations clés entre les entités pour une vue d'ensemble rapide.</p>
-                    
-                    <div class="relative h-[400px] sm:h-[500px] md:h-[600px] lg:h-[650px] p-2 flex justify-center items-center"> <div class="relative w-full max-w-xl h-full">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-emerald-100 pb-2 text-center">Schéma Conceptuel Abstrait</h3>
+                    <p class="text-slate-600 mb-8 text-center leading-relaxed">Représentation des relations clés entre les entités pour une vue d'ensemble rapide.</p>
+                   
+                    <div class="relative h-[550px] sm:h-[600px] md:h-[650px] p-4 flex justify-center items-center">
+                        <div class="relative w-full max-w-xl h-full">
                             <div class="entity-box" style="top: 50%; left: 50%; transform: translate(-50%, -50%);">TRANSACTION</div>
                             <div class="entity-box" style="top: 20%; left: 50%; transform: translate(-50%, -50%);">VOIE</div>
                             <div class="entity-box" style="top: 50%; left: 10%; transform: translate(-50%, -50%);">VEHICULE</div>
@@ -263,8 +249,8 @@
                 </div>
 
                 <div class="app-card">
-                    <h3 class="text-xl md:text-2xl font-bold text-slate-800 mb-6 border-b-2 border-emerald-100 pb-2 text-center">Statistiques et Couverture du Modèle</h3>
-                    <p class="text-slate-600 mb-8 text-center leading-relaxed text-sm md:text-base">Répartition thématique des entités pour comprendre la profondeur de la couverture fonctionnelle.</p>
+                    <h3 class="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-emerald-100 pb-2 text-center">Statistiques et Couverture du Modèle</h3>
+                    <p class="text-slate-600 mb-8 text-center leading-relaxed">Répartition thématique des entités pour comprendre la profondeur de la couverture fonctionnelle.</p>
                     <div class="chart-container-mcd">
                         <canvas id="modelStatsChart"></canvas>
                     </div>
@@ -274,13 +260,13 @@
 
         <section id="dictionnaire" class="page-section hidden animate-fade-in">
             <div class="app-card mb-12">
-                <h2 class="text-3xl md:text-4xl font-extrabold text-emerald-700 mb-4">Dictionnaire des Données <span class="text-lg md:text-xl text-slate-400 ml-2">(Entités et Attributs)</span></h2>
-                <p class="text-md md:text-xl text-slate-600 leading-relaxed">
+                <h2 class="text-4xl font-extrabold text-emerald-700 mb-4">Dictionnaire des Données <span class="text-xl text-slate-400 ml-2">(Entités et Attributs)</span></h2>
+                <p class="text-xl text-slate-600 leading-relaxed">
                     Sélectionnez une entité ci-dessous pour afficher ses attributs, contraintes (Clés Primaires/Étrangères) et ses relations fondamentales avec le reste du MCD.
                 </p>
             </div>
 
-            <div class="flex flex-col md:flex-row gap-8 md:gap-14">
+            <div class="flex flex-col md:flex-row gap-10 md:gap-14">
                 <nav class="w-full md:w-1/4">
                     <h4 class="text-lg font-bold text-slate-700 mb-3 ml-2 uppercase tracking-wider">Liste des Entités</h4>
                     <ul class="space-y-1 app-card p-2">
@@ -298,11 +284,11 @@
 
                 <div class="w-full md:w-3/4 app-card min-h-[500px]" id="entityDetailContainer">
                     <div class="flex flex-col items-center justify-center h-full text-center p-4">
-                        <span class="text-6xl sm:text-7xl mb-6 text-emerald-500">
-                             <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M6.5 2h13.12l-5.38 5.38c-1.33 1.33-1.33 3.49 0 4.82L15.62 17"/></svg>
+                        <span class="text-7xl mb-6 text-emerald-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M6.5 2h13.12l-5.38 5.38c-1.33 1.33-1.33 3.49 0 4.82L15.62 17"/></svg>
                         </span>
-                        <h3 class="text-2xl md:text-3xl font-bold text-slate-700 mb-3">Sélectionnez une Entité de Base</h3>
-                        <p class="text-lg md:text-xl text-slate-500 max-w-md">Les définitions du modèle sont essentielles pour l'intégration de la plateforme TCS.</p>
+                        <h3 class="text-3xl font-bold text-slate-700 mb-3">Sélectionnez une Entité de Base</h3>
+                        <p class="text-xl text-slate-500 max-w-md">Les définitions du modèle sont essentielles pour l'intégration de la plateforme TCS.</p>
                     </div>
                 </div>
             </div>
@@ -310,19 +296,19 @@
 
         <section id="logique" class="page-section hidden animate-fade-in">
             <div class="app-card mb-12">
-                <h2 class="text-3xl md:text-4xl font-extrabold text-emerald-700 mb-4">Logique Métier (Fonctions TCS)</h2>
-                <p class="text-md md:text-xl text-slate-600 leading-relaxed">
+                <h2 class="text-4xl font-extrabold text-emerald-700 mb-4">Logique Métier (Fonctions TCS)</h2>
+                <p class="text-xl text-slate-600 leading-relaxed">
                     **Analyse Data Expert** : Le modèle est structuré pour une séparation claire entre les systèmes d'acquisition des données en voie (Télépéage/Comptage) et les systèmes de gestion des recettes et de l'administration (Back Office).
                 </p>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-14">
                 <div class="app-card border-t-8 border-emerald-600">
-                    <h3 class="text-2xl md:text-3xl font-extrabold text-emerald-800 mb-6">Volet ABONNEMENT - Acquisition de Données en Voie</h3>
+                    <h3 class="text-3xl font-extrabold text-emerald-800 mb-6">Volet ABONNEMENT - Acquisition de Données en Voie</h3>
                     <div class="space-y-8">
                         <div>
-                            <h4 class="text-xl md:text-2xl font-bold text-slate-900 mb-2">TCS TÉLÉPÉAGE</h4>
-                            <p class="text-slate-600 mb-3 leading-relaxed text-sm md:text-base">Gestion des passages rapides (badge, RFID) : vérification du statut d'abonné, déduction du solde (le cas échéant) et génération de la TRANSACTION de passage.</p>
+                            <h4 class="text-2xl font-bold text-slate-900 mb-2">TCS TÉLÉPÉAGE</h4>
+                            <p class="text-slate-600 mb-3 leading-relaxed">Gestion des passages rapides (badge, RFID) : vérification du statut d'abonné, déduction du solde (le cas échéant) et génération de la TRANSACTION de passage.</p>
                             <div class="flex flex-wrap gap-2">
                                 <span class="badge-blue">ABONNE</span>
                                 <span class="badge-blue">VEHICULE</span>
@@ -331,8 +317,8 @@
                             </div>
                         </div>
                         <div class="border-t border-slate-100 pt-5">
-                            <h4 class="text-xl md:text-2xl font-bold text-slate-900 mb-2">TCS COMPTAGE</h4>
-                            <p class="text-slate-600 mb-3 leading-relaxed text-sm md:text-base">Acquisition de données non-financières pour les abonnés (classification, comptage d'essieux via borne VIDAR) pour validation du tarif ou statistiques de flux.</p>
+                            <h4 class="text-2xl font-bold text-slate-900 mb-2">TCS COMPTAGE</h4>
+                            <p class="text-slate-600 mb-3 leading-relaxed">Acquisition de données non-financières pour les abonnés (classification, comptage d'essieux via borne VIDAR) pour validation du tarif ou statistiques de flux.</p>
                             <div class="flex flex-wrap gap-2">
                                 <span class="badge-gray">TRANSACTION</span>
                                 <span class="badge-gray">VOIE</span>
@@ -343,11 +329,11 @@
                 </div>
 
                 <div class="app-card border-t-8 border-slate-600">
-                    <h3 class="text-2xl md:text-3xl font-extrabold text-slate-800 mb-6">Volet NON ABONNEMENT - Gestion des Recettes & Supervision</h3>
+                    <h3 class="text-3xl font-extrabold text-slate-800 mb-6">Volet NON ABONNEMENT - Gestion des Recettes & Supervision</h3>
                     <div class="space-y-8">
                         <div>
-                            <h4 class="text-xl md:text-2xl font-bold text-slate-900 mb-2">TCS ADMINISTRATION</h4>
-                            <p class="text-slate-600 mb-3 leading-relaxed text-sm md:text-base">Gestion des utilisateurs du système (EMPLOYE) et des entités de base (tarifs, configuration des VOIE), ainsi que l'administration des comptes CLIENT/ABONNE.</p>
+                            <h4 class="text-2xl font-bold text-slate-900 mb-2">TCS ADMINISTRATION</h4>
+                            <p class="text-slate-600 mb-3 leading-relaxed">Gestion des utilisateurs du système (EMPLOYE) et des entités de base (tarifs, configuration des VOIE), ainsi que l'administration des comptes CLIENT/ABONNE.</p>
                             <div class="flex flex-wrap gap-2">
                                 <span class="badge-green">EMPLOYE (Admin)</span>
                                 <span class="badge-green">CLIENT/ABONNE</span>
@@ -355,8 +341,8 @@
                             </div>
                         </div>
                         <div class="border-t border-slate-100 pt-5">
-                            <h4 class="text-xl md:text-2xl font-bold text-slate-900 mb-2">TCS VOIE</h4>
-                            <p class="text-slate-600 mb-3 leading-relaxed text-sm md:text-base">Opérations directes des percepteurs en voie : enregistrement manuel ou semi-automatique des transactions (espèces/carte), gestion des incidents et des évasions.</p>
+                            <h4 class="text-2xl font-bold text-slate-900 mb-2">TCS VOIE</h4>
+                            <p class="text-slate-600 mb-3 leading-relaxed">Opérations directes des percepteurs en voie : enregistrement manuel ou semi-automatique des transactions (espèces/carte), gestion des incidents et des évasions.</p>
                             <div class="flex flex-wrap gap-2">
                                 <span class="badge-purple">EMPLOYE (Percepteur)</span>
                                 <span class="badge-purple">VOIE</span>
@@ -364,8 +350,8 @@
                             </div>
                         </div>
                         <div class="border-t border-slate-100 pt-5">
-                            <h4 class="text-xl md:text-2xl font-bold text-slate-900 mb-2">TCS REDDITION</h4>
-                            <p class="text-slate-600 mb-3 leading-relaxed text-sm md:text-base">Processus de Back Office effectué par les percepteurs pour le décompte et la déclaration de leurs recettes (caisse). La REDDITION lie le montant déclaré à l'EMPLOYE.</p>
+                            <h4 class="text-2xl font-bold text-slate-900 mb-2">TCS REDDITION</h4>
+                            <p class="text-slate-600 mb-3 leading-relaxed">Processus de Back Office effectué par les percepteurs pour le décompte et la déclaration de leurs recettes (caisse). La REDDITION lie le montant déclaré à l'EMPLOYE.</p>
                             <div class="flex flex-wrap gap-2">
                                 <span class="badge-yellow">REDDITION</span>
                                 <span class="badge-yellow">EMPLOYE (Percepteur)</span>
@@ -373,8 +359,8 @@
                             </div>
                         </div>
                         <div class="border-t border-slate-100 pt-5">
-                            <h4 class="text-xl md:text-2xl font-bold text-slate-900 mb-2">TCS SUPERVISION</h4>
-                            <p class="text-slate-600 mb-3 leading-relaxed text-sm md:text-base">Surveillance des opérations en temps réel ou post-opérationnelle (Superviseurs/Auditeurs) pour le contrôle de fraude et la validation de la cohérence des TRANSACTIONS et REDDITIONS.</p>
+                            <h4 class="text-2xl font-bold text-slate-900 mb-2">TCS SUPERVISION</h4>
+                            <p class="text-slate-600 mb-3 leading-relaxed">Surveillance des opérations en temps réel ou post-opérationnelle (Superviseurs/Auditeurs) pour le contrôle de fraude et la validation de la cohérence des TRANSACTIONS et REDDITIONS.</p>
                             <div class="flex flex-wrap gap-2">
                                 <span class="badge-red">EMPLOYE (Superviseur)</span>
                                 <span class="badge-red">TRANSACTION</span>
@@ -392,18 +378,107 @@
     </footer>
 
     <script>
-        // DATA MODEL DEFINITION (unchanged)
+        // DATA MODEL DEFINITION
         const modelData = {
-            CLIENT: { /* ... data unchanged ... */ },
-            ABONNE: { /* ... data unchanged ... */ },
-            VEHICULE: { /* ... data unchanged ... */ },
-            VOIE: { /* ... data unchanged ... */ },
-            TRANSACTION: { /* ... data unchanged ... */ },
-            EMPLOYE: { /* ... data unchanged ... */ },
-            REDDITION: { /* ... data unchanged ... */ }
+            CLIENT: {
+                attributes: [
+                    { name: "ClientID", type: "Numérique/Chaîne", constraints: "Clé Primaire" },
+                    { name: "Nom", type: "Chaîne", constraints: "Obligatoire" },
+                    { name: "Prenom", type: "Chaîne", constraints: "Obligatoire" },
+                    { name: "Email", type: "Chaîne", constraints: "Unique, Obligatoire" },
+                    { name: "MotDePasseHash", type: "Chaîne", constraints: "Obligatoire" },
+                    { name: "Telephone", type: "Chaîne", constraints: "" },
+                    { name: "DateCreationCompte", type: "Date", constraints: "Obligatoire" }
+                ],
+                relations: [
+                    "Peut être un <strong>ABONNE</strong> (0,1) via `EST_ABONNE` (Héritage)",
+                    "Possède <strong>VEHICULE</strong> (0,N) via `POSSEDE` (Association)"
+                ]
+            },
+            ABONNE: {
+                attributes: [
+                    { name: "AbonneID", type: "Numérique/Chaîne", constraints: "Clé Primaire" },
+                    { name: "ClientID", type: "Numérique/Chaîne", constraints: "Clé Étrangère (CLIENT), Obligatoire" },
+                    { name: "StatutAbonnement", type: "Chaîne", constraints: "Obligatoire (Actif/Inactif)" },
+                    { name: "DateDebutAbonnement", type: "Date", constraints: "Obligatoire" },
+                    { name: "DateFinAbonnement", type: "Date", constraints: "Obligatoire" },
+                    { name: "SoldePrepaye", type: "Monétaire", constraints: "Peut être nul" }
+                ],
+                relations: [
+                    "Est un <strong>CLIENT</strong> (1,1) via `EST_ABONNE` (Héritage)",
+                    "Géré par <strong>EMPLOYE (Admin)</strong> (0,N) via `GERE_ABONNEMENT` (Association)"
+                ]
+            },
+            VEHICULE: {
+                attributes: [
+                    { name: "VehiculeID", type: "Numérique/Chaîne", constraints: "Clé Primaire" },
+                    { name: "ClientID", type: "Numérique/Chaîne", constraints: "Clé Étrangère (CLIENT), Obligatoire" },
+                    { name: "PlaqueImmatriculation", type: "Chaîne", constraints: "Unique, Obligatoire" },
+                    { name: "TypeVehicule", type: "Chaîne", constraints: "Obligatoire (Léger, Lourd...)" },
+                    { name: "NbEssieux", type: "Entier", constraints: "Obligatoire" }
+                ],
+                relations: [
+                    "Appartient à <strong>CLIENT</strong> (1,1) via `POSSEDE` (Association)",
+                    "Effectue des <strong>TRANSACTION</strong> (1,N) via `PASSAGE` (Association)"
+                ]
+            },
+            VOIE: {
+                attributes: [
+                    { name: "VoieID", type: "Numérique/Chaîne", constraints: "Clé Primaire" },
+                    { name: "NomVoie", type: "Chaîne", constraints: "Unique" },
+                    { name: "TypeVoie", type: "Chaîne", constraints: "Obligatoire (Télépéage/Manuelle)" },
+                    { name: "StatutVoie", type: "Chaîne", constraints: "Obligatoire (Ouvert/Fermé)" }
+                ],
+                relations: [
+                    "Enregistre des <strong>TRANSACTION</strong> (0,N) via `UTILISE` (Association)",
+                    "Gérée par <strong>EMPLOYE (Percepteur)</strong> (0,1) via `GERE_VOIE` (Association)"
+                ]
+            },
+            TRANSACTION: {
+                attributes: [
+                    { name: "TransactionID", type: "Numérique/Chaîne", constraints: "Clé Primaire" },
+                    { name: "VoieID", type: "Numérique/Chaîne", constraints: "Clé Étrangère (VOIE)" },
+                    { name: "PlaqueImmatriculation", type: "Chaîne", constraints: "Obligatoire (Correspond à VEHICULE)" },
+                    { name: "TypePaiement", type: "Chaîne", constraints: "Obligatoire (Espèce, Carte, Badge)" },
+                    { name: "MontantPaye", type: "Monétaire", constraints: "Obligatoire" },
+                    { name: "DateHeurePassage", type: "Date/Heure", constraints: "Obligatoire" },
+                    { name: "ClassificationVehicule", type: "Chaîne", constraints: "Déterminée par TCS COMPTAGE" }
+                ],
+                relations: [
+                    "Concerne un <strong>VEHICULE</strong> (1,1) via `PASSAGE` (Association)",
+                    "Utilise une <strong>VOIE</strong> (1,1) via `UTILISE` (Association)",
+                    "Supervisée par <strong>EMPLOYE (Superviseur)</strong> (0,N) via `SUPERVISE` (Association)"
+                ]
+            },
+            EMPLOYE: {
+                attributes: [
+                    { name: "EmployeID", type: "Numérique/Chaîne", constraints: "Clé Primaire" },
+                    { name: "Nom", type: "Chaîne", constraints: "Obligatoire" },
+                    { name: "Role", type: "Chaîne", constraints: "Obligatoire (Admin, Percepteur, Superviseur)" },
+                    { name: "Matricule", type: "Chaîne", constraints: "Unique, Obligatoire" }
+                ],
+                relations: [
+                    "Peut faire une <strong>REDDITION</strong> (si Percepteur) (0,N) via `FAIT_REDDITION`",
+                    "Peut gérer des <strong>VOIE</strong> (si Percepteur) (0,N) via `GERE_VOIE`",
+                    "Peut superviser des <strong>TRANSACTION</strong> (si Superviseur) (0,N) via `SUPERVISE`"
+                ]
+            },
+            REDDITION: {
+                attributes: [
+                    { name: "RedditionID", type: "Numérique/Chaîne", constraints: "Clé Primaire" },
+                    { name: "EmployeID", type: "Numérique/Chaîne", constraints: "Clé Étrangère (EMPLOYE), Obligatoire" },
+                    { name: "DateHeureReddition", type: "Date/Heure", constraints: "Obligatoire" },
+                    { name: "MontantDeclare", type: "Monétaire", constraints: "Obligatoire" },
+                    { name: "MontantCompte", type: "Monétaire", constraints: "Résultat du contrôle" },
+                    { name: "Statut", type: "Chaîne", constraints: "Validé, En Attente, Écart" }
+                ],
+                relations: [
+                    "Effectuée par <strong>EMPLOYE (Percepteur)</strong> (1,1) via `FAIT_REDDITION` (Association)"
+                ]
+            }
         };
 
-        // --- Dictionnaire Functions (unchanged) ---
+        // --- Dictionnaire Functions ---
         const generateTableHTML = (attributes) => {
             let rows = attributes.map(attr => `
                 <tr class="border-b border-slate-100 hover:bg-emerald-50/50 transition-colors duration-100">
@@ -413,7 +488,6 @@
                 </tr>
             `).join('');
             return `
-                <h3 class="text-3xl font-extrabold text-slate-800 mb-6">${attributes[0].name.replace('ID', '').toUpperCase()} : Attributs</h3>
                 <div class="overflow-x-auto rounded-xl border border-slate-200">
                     <table class="w-full min-w-max text-left">
                         <thead class="bg-slate-50 border-b border-slate-200">
@@ -430,183 +504,287 @@
                 </div>
             `;
         };
-        const generateRelationsHTML = (relations) => {
-            if (relations.length === 0) return '';
-            const listItems = relations.map(rel => `<li class="text-slate-700 text-sm md:text-base flex items-start"><span class="text-emerald-500 text-2xl mr-3 mt-[-4px]">🔗</span>${rel}</li>`).join('');
+
+        const generateEntityDetails = (entityName, data) => {
+            const tableHTML = generateTableHTML(data.attributes);
+            const relationsHTML = data.relations.map(rel => `
+                <li class="py-2 px-4 bg-slate-50 rounded-lg text-slate-700 text-sm md:text-base border-l-4 border-emerald-400">
+                    ${rel}
+                </li>
+            `).join('');
+
             return `
-                <h4 class="text-2xl font-bold text-slate-800 mt-10 mb-4 border-b border-slate-200 pb-2">Relations Clés</h4>
-                <ul class="space-y-3">${listItems}</ul>
+                <h3 class="text-4xl font-extrabold text-slate-800 mb-2">${entityName}</h3>
+                <p class="text-xl text-emerald-600 mb-8">${data.attributes.length} Attributs | ${data.relations.length} Relations Clés</p>
+
+                <h4 class="text-2xl font-bold text-slate-700 mb-4 border-b pb-2">Attributs de l'Entité</h4>
+                ${tableHTML}
+
+                <h4 class="text-2xl font-bold text-slate-700 mt-10 mb-4 border-b pb-2">Relations Conceptuelles</h4>
+                <ul class="space-y-3">
+                    ${relationsHTML}
+                </ul>
             `;
         };
 
-        const renderEntityDetails = (entityName) => {
+        const updateEntityDetails = (entityName) => {
+            const container = document.getElementById('entityDetailContainer');
             const data = modelData[entityName];
-            if (!data) return;
 
-            const detailContainer = document.getElementById('entityDetailContainer');
-            detailContainer.innerHTML = `
-                ${generateTableHTML(data.attributes)}
-                ${generateRelationsHTML(data.relations)}
-            `;
-            detailContainer.classList.add('animate-fade-in');
+            if (data) {
+                container.classList.remove('justify-center', 'items-center');
+                container.innerHTML = generateEntityDetails(entityName, data);
+            }
         };
 
-        // --- Navigation Functions (unchanged logic, applied to new mobile/desktop structure) ---
+        // Event listener for Dictionnaire links
+        document.querySelectorAll('.dict-link').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const entityName = e.target.getAttribute('data-entity');
+
+                // Update active link style
+                document.querySelectorAll('.dict-link').forEach(link => {
+                    link.classList.remove('active');
+                });
+                e.target.classList.add('active');
+
+                // Update details
+                updateEntityDetails(entityName);
+            });
+        });
+
+        // --- Navigation Functions ---
         document.querySelectorAll('.nav-link').forEach(button => {
             button.addEventListener('click', (e) => {
-                const targetId = e.target.dataset.target;
-                
-                // 1. Hide all pages
+                const targetId = e.target.getAttribute('data-target');
+
+                // 1. Update active link style
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active');
+                });
+                e.target.classList.add('active');
+
+                // 2. Hide all sections and show the target one
                 document.querySelectorAll('.page-section').forEach(section => {
                     section.classList.add('hidden');
-                    section.classList.remove('animate-fade-in');
                 });
-
-                // 2. Show the target page
                 const targetSection = document.getElementById(targetId);
                 if (targetSection) {
                     targetSection.classList.remove('hidden');
-                    targetSection.classList.add('animate-fade-in');
                 }
 
-                // 3. Update active state for all nav links (mobile and desktop)
-                document.querySelectorAll('.nav-link').forEach(nav => nav.classList.remove('active'));
-                
-                // Find and set active state for all links with the same target
-                document.querySelectorAll(`.nav-link[data-target="${targetId}"]`).forEach(nav => nav.classList.add('active'));
-
-                // 4. Close mobile menu if open
-                const mobileNav = document.getElementById('main-nav-links-mobile');
-                if (!mobileNav.classList.contains('hidden')) {
-                     mobileNav.classList.add('hidden');
-                }
-            });
-        });
-
-        // --- Dictionary Navigation (updated active state logic) ---
-        document.querySelectorAll('.dict-link').forEach(button => {
-            button.addEventListener('click', (e) => {
-                const entityName = e.target.dataset.entity;
-
-                // 1. Render details
-                renderEntityDetails(entityName);
-                
-                // 2. Update active state
-                document.querySelectorAll('.dict-link').forEach(link => link.classList.remove('active'));
-                e.target.classList.add('active');
-            });
-        });
-
-        // --- Mobile Menu Toggle Logic (NEW) ---
-        document.getElementById('menu-toggle').addEventListener('click', () => {
-             const mobileNav = document.getElementById('main-nav-links-mobile');
-             mobileNav.classList.toggle('hidden');
-        });
-
-
-        // --- Chart Functions (unchanged) ---
-        document.addEventListener('DOMContentLoaded', () => {
-            // Placeholder/Example data for charts
-            const accuracyData = {
-                labels: ['VIDAR', 'Ancien Système'],
-                datasets: [{
-                    label: 'Précision de Classification (%)',
-                    data: [99.8, 85.5],
-                    backgroundColor: ['#059669', '#cbd5e1'],
-                }]
-            };
-
-            new Chart(document.getElementById('accuracyChart'), {
-                type: 'bar',
-                data: accuracyData,
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            max: 100
-                        }
-                    },
-                    plugins: {
-                        legend: { display: false },
-                        title: { display: false }
+                // Special case for Dictionnaire: highlight the first entity on load if none selected
+                if (targetId === 'dictionnaire') {
+                    const firstDictLink = document.querySelector('.dict-link');
+                    const container = document.getElementById('entityDetailContainer');
+                    // Only load default if the container is empty (first load or reset state)
+                    if (firstDictLink && container.innerHTML.includes('Sélectionnez une Entité')) {
+                         firstDictLink.click();
                     }
                 }
             });
-
-            const revenueData = {
-                 labels: ['2023 Q1', '2023 Q2', '2023 Q3', '2023 Q4', '2024 Q1 (TCS)'],
-                 datasets: [{
-                     label: 'Recettes (M€)',
-                     data: [15.2, 16.1, 15.8, 16.5, 19.3],
-                     borderColor: '#059669',
-                     backgroundColor: 'rgba(5, 150, 105, 0.2)',
-                     tension: 0.4,
-                     fill: true,
-                 }]
-            };
-
-            new Chart(document.getElementById('revenueChart'), {
-                 type: 'line',
-                 data: revenueData,
-                 options: {
-                     responsive: true,
-                     maintainAspectRatio: false,
-                     scales: {
-                         y: { beginAtZero: false }
-                     },
-                     plugins: {
-                         legend: { display: true, position: 'top' },
-                         title: { display: false }
-                     }
-                 }
-            });
-
-            const trafficData = {
-                 labels: ['Classe 1 (Léger)', 'Classe 2 (Intermédiaire)', 'Classe 3 (Lourd)'],
-                 datasets: [{
-                     label: 'Pourcentage du Flux',
-                     data: [65, 20, 15],
-                     backgroundColor: ['#3b82f6', '#f59e0b', '#dc2626'],
-                 }]
-            };
-
-            new Chart(document.getElementById('trafficChart'), {
-                 type: 'doughnut',
-                 data: trafficData,
-                 options: {
-                     responsive: true,
-                     maintainAspectRatio: false,
-                     plugins: {
-                         legend: { position: 'bottom' },
-                         title: { display: false }
-                     }
-                 }
-            });
-
-            const modelStatsData = {
-                 labels: ['Client/Abonnement', 'Opérations/Transactions', 'Administration/Employés'],
-                 datasets: [{
-                     label: 'Nombre d\'Entités',
-                     data: [3, 2, 2],
-                     backgroundColor: ['#059669', '#2563eb', '#f59e0b'],
-                 }]
-            };
-            new Chart(document.getElementById('modelStatsChart'), {
-                 type: 'polarArea',
-                 data: modelStatsData,
-                 options: {
-                     responsive: true,
-                     maintainAspectRatio: false,
-                     plugins: {
-                         legend: { position: 'bottom' },
-                         title: { display: false }
-                     }
-                 }
-            });
-
         });
+
+        // --- Chart Functions ---
+
+        // Chart: Technology Accuracy (Doughnut)
+        const renderAccuracyChart = () => {
+            const ctx = document.getElementById('accuracyChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Précision VIDAR (IA)', 'Précision Ancien Système', 'Marge d\'Erreur/Non Classifié'],
+                    datasets: [{
+                        label: 'Précision de Classification',
+                        data: [98.5, 80, 1.5], // Fictional Data
+                        backgroundColor: [
+                            'rgb(16, 185, 129)', // emerald-500
+                            'rgb(251, 191, 36)', // amber-400
+                            'rgb(100, 116, 139)' // slate-500
+                        ],
+                        hoverOffset: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                font: {
+                                    size: 14
+                                }
+                            }
+                        },
+                        title: {
+                            display: false
+                        }
+                    }
+                }
+            });
+        };
+
+        // Chart: Revenue Optimization (Bar)
+        const renderRevenueChart = () => {
+            const ctx = document.getElementById('revenueChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['T-1 (Avant TCS)', 'T (Après TCS)'],
+                    datasets: [
+                        {
+                            label: 'Recettes Collectées (M€)',
+                            data: [15, 21], // Fictional Data
+                            backgroundColor: 'rgb(16, 185, 129, 0.7)', // emerald-500
+                            borderColor: 'rgb(16, 185, 129)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Pertes Estimées (M€)',
+                            data: [4, 0.5], // Fictional Data
+                            backgroundColor: 'rgb(239, 68, 68, 0.7)', // red-500
+                            borderColor: 'rgb(239, 68, 68)',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                font: {
+                                    size: 14
+                                }
+                            }
+                        },
+                        title: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Montant (M€)'
+                            }
+                        }
+                    }
+                }
+            });
+        };
+
+        // Chart: Traffic Analysis (Pie)
+        const renderTrafficChart = () => {
+            const ctx = document.getElementById('trafficChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: ['Véhicules Légers (VL)', 'Poids Lourds (PL) 2 Essieux', 'PL 3 Essieux', 'PL > 3 Essieux'],
+                    datasets: [{
+                        label: 'Flux de Trafic',
+                        data: [65, 15, 10, 10], // Fictional Data
+                        backgroundColor: [
+                            'rgb(59, 130, 246)', // blue-500
+                            'rgb(234, 179, 8)', // yellow-600
+                            'rgb(124, 58, 237)', // violet-600
+                            'rgb(249, 115, 22)' // orange-600
+                        ],
+                        hoverOffset: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                            labels: {
+                                font: {
+                                    size: 14
+                                }
+                            }
+                        },
+                        title: {
+                            display: false
+                        }
+                    }
+                }
+            });
+        };
+
+        // Chart: Model Stats (Pie)
+        const renderModelStatsChart = () => {
+             const ctx = document.getElementById('modelStatsChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'polarArea',
+                data: {
+                    labels: ['Gestion Clients/Abonnés', 'Acquisition & Recettes', 'Logistique & Administration', 'Supervision & Audit'],
+                    datasets: [{
+                        label: 'Entités Couvertes',
+                        data: [3, 3, 1, 1], // CLIENT, ABONNE, VEHICULE | VOIE, TRANSACTION, REDDITION | EMPLOYE
+                        backgroundColor: [
+                            'rgba(16, 185, 129, 0.7)', // emerald
+                            'rgba(251, 191, 36, 0.7)', // amber
+                            'rgba(59, 130, 246, 0.7)', // blue
+                            'rgba(239, 68, 68, 0.7)' // red
+                        ],
+                        borderColor: [
+                            'rgb(16, 185, 129)',
+                            'rgb(251, 191, 36)',
+                            'rgb(59, 130, 246)',
+                            'rgb(239, 68, 68)'
+                        ],
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                     plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                font: {
+                                    size: 14
+                                }
+                            }
+                        },
+                        title: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        r: {
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.1)'
+                            },
+                            angleLines: {
+                                color: 'rgba(0, 0, 0, 0.1)'
+                            },
+                            pointLabels: {
+                                display: true,
+                                font: {
+                                    size: 14
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        };
+
+        // Initial setup
+        window.onload = () => {
+            renderAccuracyChart();
+            renderRevenueChart();
+            renderTrafficChart();
+            renderModelStatsChart();
+        };
     </script>
 </body>
 </html>
