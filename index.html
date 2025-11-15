@@ -116,15 +116,18 @@
 </head>
 <body class="bg-slate-100 text-slate-800">
 
+    <!-- Professional Navigation Bar -->
     <nav class="sticky top-0 bg-white shadow-lg z-50">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-24">
+                <!-- Logo/Title -->
                 <div class="flex-shrink-0">
                     <h1 class="text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-orange-500 to-emerald-600 drop-shadow-md">
                         TCS Tableau de Bord
                     </h1>
                 </div>
 
+                <!-- Desktop Menu (Horizontal: visible from sm up) -->
                 <div class="hidden sm:flex flex-wrap items-center justify-end space-x-2 sm:space-x-3" id="desktop-menu">
                     <button class="nav-link active" data-target="accueil">Accueil</button>
                     <button class="nav-link" data-target="technologie">Technologie</button>
@@ -134,11 +137,14 @@
                     <button class="nav-link" data-target="logique">Logique Métier</button>
                 </div>
 
+                <!-- Mobile Menu Button (Hamburger: visible only below sm) -->
                 <div class="sm:hidden">
                     <button id="mobile-menu-button" type="button" class="p-2 rounded-md text-slate-700 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-emerald-500">
+                        <!-- Icon Open (Hamburger) -->
                         <svg id="menu-icon-open" class="h-6 w-6 block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
+                        <!-- Icon Close (X) -->
                         <svg id="menu-icon-close" class="h-6 w-6 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                         </svg>
@@ -147,6 +153,7 @@
             </div>
         </div>
         
+        <!-- Mobile Menu Links (Vertical: hidden by default, shown via JS) -->
         <div id="mobile-menu" class="hidden sm:hidden bg-white shadow-inner pb-4 border-t border-slate-200">
             <div class="space-y-1 px-2 pt-2 pb-3">
                 <button class="nav-link-mobile active" data-target="accueil">Accueil</button>
@@ -161,7 +168,9 @@
 
     <main class="container mx-auto p-4 md:p-8 lg:p-12">
 
+        <!-- ACCUEIL SECTION (From Infographic) -->
         <section id="accueil" class="page-section animate-fade-in space-y-14">
+            <!-- Hero -->
             <div class="bg-gradient-to-r from-red-600 via-orange-500 to-emerald-600 p-8 md:p-12 rounded-3xl shadow-2xl text-white">
                 <h2 class="text-4xl md:text-5xl font-extrabold mb-4 drop-shadow-lg">TCS: La Révolution du Contrôle de Péage</h2>
                 <p class="text-xl font-light opacity-95 leading-relaxed">
@@ -169,12 +178,14 @@
                 </p>
             </div>
 
+            <!-- Core Solution -->
             <div class="app-card">
                  <h2 class="text-3xl font-bold text-center mb-4">Une Solution, Deux Volets Opérationnels</h2>
                 <p class="text-lg text-gray-600 text-center max-w-3xl mx-auto mb-12">
                     Le système TCS est conçu pour gérer nativement les deux types de flux de péage, assurant une couverture complète de vos opérations.
                 </p>
                 <div class="flex flex-col md:flex-row justify-center items-center md:items-stretch space-y-8 md:space-y-0 md:space-x-8">
+                    <!-- Volet Abonnement -->
                     <div class="flow-box flex-1">
                         <span class="text-5xl">💳</span>
                         <h3 class="text-2xl font-semibold text-emerald-700 my-3">Volet ABONNEMENT</h3>
@@ -183,6 +194,7 @@
                         </p>
                     </div>
                     
+                    <!-- Volet Non Abonnement -->
                     <div class="flow-box flex-1 border-orange-500">
                         <span class="text-5xl">🚗</span>
                         <h3 class="text-2xl font-semibold text-orange-600 my-3">Volet NON ABONNEMENT</h3>
@@ -194,9 +206,11 @@
             </div>
         </section>
 
+        <!-- TECHNOLOGIE SECTION (From Infographic) -->
         <section id="technologie" class="page-section hidden animate-fade-in">
              <div class="app-card overflow-hidden">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Left Side: Text -->
                     <div class="p-4 md:p-8">
                         <h2 class="text-3xl font-bold text-gray-900 mb-4">Technologie Clé: La Borne VIDAR d'Essieux</h2>
                         <p class="text-lg text-gray-600 mb-6">
@@ -217,6 +231,7 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Right Side: Chart -->
                     <div class="bg-slate-50 p-8 flex items-center justify-center rounded-xl">
                         <div class="w-full">
                             <h3 class="text-xl font-semibold text-center mb-4">Précision de Classification (VIDAR vs. Ancien)</h3>
@@ -229,6 +244,7 @@
             </div>
         </section>
 
+        <!-- IMPACT (DATA) SECTION (From Infographic) -->
         <section id="impact" class="page-section hidden animate-fade-in">
             <div class="app-card mb-12">
                  <h2 class="text-4xl font-extrabold text-emerald-700 mb-4">L'Impact du TCS en Données</h2>
@@ -237,6 +253,7 @@
                 </p>
             </div>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-14">
+                <!-- Chart 1: Revenue -->
                 <div class="app-card">
                     <h3 class="text-2xl font-semibold text-center mb-6">Optimisation des Recettes</h3>
                     <p class="text-gray-600 text-center mb-6">Réduction des pertes et augmentation des recettes collectées grâce à l'automatisation et au contrôle rigoureux.</p>
@@ -245,6 +262,7 @@
                     </div>
                 </div>
 
+                <!-- Chart 2: Traffic -->
                 <div class="app-card">
                     <h3 class="text-2xl font-semibold text-center mb-6">Analyse du Flux de Trafic (par VIDAR)</h3>
                     <p class="text-gray-600 text-center mb-6">Classification automatique permettant une analyse fine du trafic par classe de véhicule pour la maintenance et la tarification.</p>
@@ -255,27 +273,58 @@
             </div>
         </section>
 
+        <!-- MCD SCHEMA SECTION (From Explorer) -->
         <section id="schema_mcd" class="page-section hidden animate-fade-in">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-14">
                 <div class="app-card">
-                    <h3 class="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-emerald-100 pb-2 text-center">Schéma Conceptuel Abstrait</h3>
+                    <h3 class="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-emerald-100 pb-2 text-center">Schéma Conceptuel Abstrait (Étendu)</h3>
                     <p class="text-slate-600 mb-8 text-center leading-relaxed">Représentation des relations clés entre les entités pour une vue d'ensemble rapide.</p>
                     
-                    <div class="relative h-[550px] sm:h-[600px] md:h-[650px] p-4 flex justify-center items-center">
+                    <div class="relative h-[650px] sm:h-[700px] md:h-[750px] p-4 flex justify-center items-center">
                         <div class="relative w-full max-w-xl h-full">
-                            <div class="entity-box" style="top: 50%; left: 50%; transform: translate(-50%, -50%);">TRANSACTION</div>
-                            <div class="entity-box" style="top: 20%; left: 50%; transform: translate(-50%, -50%);">VOIE</div>
-                            <div class="entity-box" style="top: 50%; left: 10%; transform: translate(-50%, -50%);">VEHICULE</div>
-                            <div class="entity-box" style="top: 20%; left: 10%; transform: translate(-50%, -50%);">CLIENT</div>
+                            <!-- Diagram elements -->
+                            <!-- Colonne 1 (Client/Véhicule) -->
+                            <div class="entity-box" style="top: 10%; left: 10%; transform: translate(-50%, -50%);">CLIENT</div>
                             <div class="entity-box" style="top: 0%; left: 10%; transform: translate(-50%, -50%);">ABONNE</div>
-                            <div class="entity-box" style="top: 80%; left: 50%; transform: translate(-50%, -50%);">EMPLOYE</div>
-                            <div class="entity-box" style="top: 80%; left: 90%; transform: translate(-50%, -50%);">REDDITION</div>
-                            <div class="connector-line" style="top: 12%; left: 10%; width: 2px; height: 8%;"></div>
-                            <div class="connector-line" style="top: 32%; left: 10%; width: 2px; height: 18%;"></div>
-                            <div class="connector-line" style="top: 50%; left: 24%; width: 26%; height: 2px;"></div>
-                            <div class="connector-line" style="top: 32%; left: 50%; width: 2px; height: 18%;"></div>
-                            <div class="connector-line" style="top: 62%; left: 50%; width: 2px; height: 18%;"></div>
-                            <div class="connector-line" style="top: 80%; left: 69%; width: 21%; height: 2px;"></div>
+                            <div class="entity-box" style="top: 25%; left: 10%; transform: translate(-50%, -50%);">VEHICULE</div>
+
+                            <!-- Colonne 2 (Péage/Voie/Cabine) -->
+                            <div class="entity-box bg-red-600 border-red-400" style="top: 10%; left: 50%; transform: translate(-50%, -50%);">PEAGE</div>
+                            <div class="entity-box" style="top: 25%; left: 50%; transform: translate(-50%, -50%);">CABINE</div>
+                            <div class="entity-box" style="top: 40%; left: 50%; transform: translate(-50%, -50%);">VOIE</div>
+                            
+                            <!-- Colonne 3 (Transaction & Reddition) -->
+                            <div class="entity-box" style="top: 55%; left: 50%; transform: translate(-50%, -50%);">TRANSACTION</div>
+                            <div class="entity-box bg-orange-600 border-orange-400" style="top: 75%; left: 50%; transform: translate(-50%, -50%);">SESSION_DE_REDDITION</div>
+                            <div class="entity-box" style="top: 85%; left: 75%; transform: translate(-50%, -50%);">REDDITION</div>
+                            <div class="entity-box bg-yellow-600 border-yellow-400" style="top: 95%; left: 75%; transform: translate(-50%, -50%);">ANOMALIE_REDDITION</div>
+
+                            <!-- Colonne 4 (Employé / Utilisateur) -->
+                            <div class="entity-box" style="top: 75%; left: 25%; transform: translate(-50%, -50%);">EMPLOYE</div>
+                            <div class="entity-box bg-purple-600 border-purple-400" style="top: 60%; left: 25%; transform: translate(-50%, -50%);">UTILISATEUR_SYSTEME</div>
+
+
+                            <!-- Connectors -->
+                            <!-- Client/Véhicule -->
+                            <div class="connector-line" style="top: 5%; left: 10%; width: 2px; height: 5%;"></div>
+                            <div class="connector-line" style="top: 15%; left: 10%; width: 2px; height: 10%;"></div>
+                            
+                            <!-- Transaction Links (Center) -->
+                            <div class="connector-line" style="top: 32%; left: 28%; width: 26%; height: 2px;"></div> <!-- VEHICULE -> TRANSACTION -->
+                            <div class="connector-line" style="top: 47%; left: 50%; width: 2px; height: 8%;"></div> <!-- VOIE -> TRANSACTION -->
+                            <div class="connector-line" style="top: 65%; left: 50%; width: 2px; height: 10%;"></div> <!-- TRANSACTION -> SESSION -->
+
+                            <!-- Cabine/Voie/Péage Links -->
+                            <div class="connector-line" style="top: 17%; left: 50%; width: 2px; height: 8%;"></div> <!-- PEAGE -> CABINE -->
+                            <div class="connector-line" style="top: 32%; left: 50%; width: 2px; height: 8%;"></div> <!-- CABINE -> VOIE -->
+
+                            <!-- Employe/Reddition/Session Links -->
+                            <div class="connector-line" style="top: 67%; left: 37%; width: 14%; height: 2px;"></div> <!-- UTILISATEUR -> SESSION -->
+                            <div class="connector-line" style="top: 75%; left: 37%; width: 14%; height: 2px;"></div> <!-- EMPLOYE -> SESSION -->
+                            <div class="connector-line" style="top: 75%; left: 63%; width: 12%; height: 2px;"></div> <!-- SESSION -> REDDITION -->
+
+                            <!-- Session / Anomalie -->
+                            <div class="connector-line" style="top: 85%; left: 69%; width: 2px; height: 10%;"></div> <!-- REDDITION -> ANOMALIE -->
                         </div>
                     </div>
                 </div>
@@ -290,6 +339,7 @@
             </div>
         </section>
 
+        <!-- DICTIONNAIRE SECTION (From Explorer) -->
         <section id="dictionnaire" class="page-section hidden animate-fade-in">
             <div class="app-card mb-12">
                 <h2 class="text-4xl font-extrabold text-emerald-700 mb-4">Dictionnaire des Données <span class="text-xl text-slate-400 ml-2">(Entités et Attributs)</span></h2>
@@ -306,11 +356,16 @@
                         <li><button class="dict-link" data-entity="ABONNE">2. ABONNE</button></li>
                         <li><button class="dict-link" data-entity="VEHICULE">3. VEHICULE</button></li>
                         <li class="border-t border-slate-100 my-1"></li>
-                        <li><button class="dict-link" data-entity="VOIE">4. VOIE</button></li>
-                        <li><button class="dict-link" data-entity="TRANSACTION">5. TRANSACTION</button></li>
+                        <li><button class="dict-link" data-entity="PEAGE">4. PEAGE</button></li>
+                        <li><button class="dict-link" data-entity="CABINE">5. CABINE</button></li>
+                        <li><button class="dict-link" data-entity="VOIE">6. VOIE</button></li>
+                        <li><button class="dict-link" data-entity="TRANSACTION">7. TRANSACTION</button></li>
                         <li class="border-t border-slate-100 my-1"></li>
-                        <li><button class="dict-link" data-entity="EMPLOYE">6. EMPLOYE</button></li>
-                        <li><button class="dict-link" data-entity="REDDITION">7. REDDITION</button></li>
+                        <li><button class="dict-link" data-entity="EMPLOYE">8. EMPLOYE</button></li>
+                        <li><button class="dict-link" data-entity="UTILISATEUR_SYSTEME">9. UTILISATEUR_SYSTEME</button></li>
+                        <li><button class="dict-link" data-entity="SESSION_DE_REDDITION">10. SESSION_DE_REDDITION</button></li>
+                        <li><button class="dict-link" data-entity="REDDITION">11. REDDITION</button></li>
+                        <li><button class="dict-link" data-entity="ANOMALIE_REDDITION">12. ANOMALIE_REDDITION</button></li>
                     </ul>
                 </nav>
 
@@ -326,6 +381,7 @@
             </div>
         </section>
 
+        <!-- LOGIQUE METIER SECTION (From Explorer) -->
         <section id="logique" class="page-section hidden animate-fade-in">
             <div class="app-card mb-12">
                 <h2 class="text-4xl font-extrabold text-emerald-700 mb-4">Logique Métier (Fonctions TCS)</h2>
@@ -344,7 +400,7 @@
                             <div class="flex flex-wrap gap-2">
                                 <span class="badge-blue">ABONNE</span>
                                 <span class="badge-blue">VEHICULE</span>
-                                <span class="badge-blue">VOIE (Dédiée)</span>
+                                <span class="badge-blue">CABINE/VOIE (Dédiée)</span>
                                 <span class="badge-blue">TRANSACTION</span>
                             </div>
                         </div>
@@ -353,7 +409,7 @@
                             <p class="text-slate-600 mb-3 leading-relaxed">Acquisition de données non-financières pour les abonnés (classification, comptage d'essieux  via borne VIDAR) pour validation du tarif ou statistiques de flux.</p>
                             <div class="flex flex-wrap gap-2">
                                 <span class="badge-gray">TRANSACTION</span>
-                                <span class="badge-gray">VOIE</span>
+                                <span class="badge-gray">CABINE/VOIE</span>
                                 <span class="badge-gray">VEHICULE</span>
                             </div>
                         </div>
@@ -365,37 +421,40 @@
                     <div class="space-y-8">
                         <div>
                             <h4 class="text-2xl font-bold text-slate-900 mb-2">TCS ADMINISTRATION</h4>
-                            <p class="text-slate-600 mb-3 leading-relaxed">Gestion des utilisateurs du système (EMPLOYE) et des entités de base (tarifs, configuration des VOIE), ainsi que l'administration des comptes CLIENT/ABONNE.</p>
+                            <p class="text-slate-600 mb-3 leading-relaxed">Gestion des utilisateurs du système (UTILISATEUR_SYSTEME/EMPLOYE) et des entités de base (tarifs, configuration des CABINE/PEAGE), ainsi que l'administration des comptes CLIENT/ABONNE.</p>
                             <div class="flex flex-wrap gap-2">
+                                <span class="badge-green">UTILISATEUR_SYSTEME</span>
                                 <span class="badge-green">EMPLOYE (Admin)</span>
                                 <span class="badge-green">CLIENT/ABONNE</span>
-                                <span class="badge-green">VOIE (Configuration)</span>
+                                <span class="badge-green">PEAGE/CABINE</span>
                             </div>
                         </div>
                         <div class="border-t border-slate-100 pt-5">
-                            <h4 class="text-2xl font-bold text-slate-900 mb-2">TCS VOIE</h4>
-                            <p class="text-slate-600 mb-3 leading-relaxed">Opérations directes des percepteurs en voie : enregistrement manuel ou semi-automatique des transactions (espèces/carte), gestion des incidents et des évasions.</p>
+                            <h4 class="text-2xl font-bold text-slate-900 mb-2">TCS VOIE & TRANSACTION</h4>
+                            <p class="text-slate-600 mb-3 leading-relaxed">Opérations directes des percepteurs en voie : enregistrement manuel ou semi-automatique des transactions (espèces/carte) au sein d'une SESSION_DE_REDDITION.</p>
                             <div class="flex flex-wrap gap-2">
                                 <span class="badge-purple">EMPLOYE (Percepteur)</span>
-                                <span class="badge-purple">VOIE</span>
+                                <span class="badge-purple">SESSION_DE_REDDITION</span>
                                 <span class="badge-purple">TRANSACTION</span>
                             </div>
                         </div>
                         <div class="border-t border-slate-100 pt-5">
-                            <h4 class="text-2xl font-bold text-slate-900 mb-2">TCS REDDITION</h4>
-                            <p class="text-slate-600 mb-3 leading-relaxed">Processus de Back Office effectué par les percepteurs pour le décompte et la déclaration de leurs recettes (caisse). La REDDITION lie le montant déclaré à l'EMPLOYE.</p>
+                            <h4 class="text-2xl font-bold text-slate-900 mb-2">TCS REDDITION & AUDIT</h4>
+                            <p class="text-slate-600 mb-3 leading-relaxed">Processus de Back Office effectué par les percepteurs pour le décompte et la déclaration des recettes. Les écarts sont tracés dans ANOMALIE_REDDITION et validés par le Superviseur.</p>
                             <div class="flex flex-wrap gap-2">
                                 <span class="badge-yellow">REDDITION</span>
-                                <span class="badge-yellow">EMPLOYE (Percepteur)</span>
-                                <span class="badge-yellow">TRANSACTION (Somme)</span>
+                                <span class="badge-yellow">SESSION_DE_REDDITION</span>
+                                <span class="badge-yellow">ANOMALIE_REDDITION</span>
+                                <span class="badge-yellow">EMPLOYE (Superviseur)</span>
                             </div>
                         </div>
                         <div class="border-t border-slate-100 pt-5">
                             <h4 class="text-2xl font-bold text-slate-900 mb-2">TCS SUPERVISION</h4>
                             <p class="text-slate-600 mb-3 leading-relaxed">Surveillance des opérations en temps réel ou post-opérationnelle (Superviseurs/Auditeurs) pour le contrôle de fraude et la validation de la cohérence des TRANSACTIONS et REDDITIONS.</p>
                             <div class="flex flex-wrap gap-2">
+                                <span class="badge-red">UTILISATEUR_SYSTEME</span>
                                 <span class="badge-red">EMPLOYE (Superviseur)</span>
-                                <span class="badge-red">TRANSACTION</span>
+                                <span class="badge-red">ANOMALIE_REDDITION</span>
                             </div>
                         </div>
                     </div>
@@ -404,6 +463,7 @@
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="text-center p-8 mt-16 bg-white shadow-inner text-slate-500 text-sm border-t border-slate-200">
         © 2025 NOISIM Engineering Services - Tous droits réservés. <br>
         Application d'exploration du MCD - Optimisée pour le système TCS.
@@ -454,14 +514,45 @@
                     "Effectue des <strong>TRANSACTION</strong> (1,N) via `PASSAGE` (Association)"
                 ]
             },
+            
+            // NOUVELLE ENTITÉ: PEAGE
+            PEAGE: {
+                attributes: [
+                    { name: "id_peage", type: "Numérique/Chaîne", constraints: "Clé Primaire" },
+                    { name: "nom", type: "Chaîne", constraints: "Unique, Obligatoire" },
+                    { name: "localisation", type: "Chaîne", constraints: "Obligatoire" },
+                    { name: "nombre_de_voies", type: "Entier", constraints: "Obligatoire" }
+                ],
+                relations: [
+                    "Possède des <strong>CABINE</strong> (1,N) via `FAIT_PARTIE` (Composition)"
+                ]
+            },
+
+            // NOUVELLE ENTITÉ: CABINE
+            CABINE: {
+                attributes: [
+                    { name: "id_cabine", type: "Numérique/Chaîne", constraints: "Clé Primaire" },
+                    { name: "id_peage", type: "Numérique/Chaîne", constraints: "Clé Étrangère (PEAGE), Obligatoire" },
+                    { name: "nom", type: "Chaîne", constraints: "Obligatoire" },
+                    { name: "type", type: "Chaîne", constraints: "Obligatoire (Automatique/Manuel)" },
+                    { name: "localisation", type: "Chaîne", constraints: "Obligatoire (Description physique)" }
+                ],
+                relations: [
+                    "Appartient à un <strong>PEAGE</strong> (1,1) via `FAIT_PARTIE` (Composition)",
+                    "Contient une <strong>VOIE</strong> (1,1) via `HEBERGE` (Association)"
+                ]
+            },
+
             VOIE: {
                 attributes: [
                     { name: "VoieID", type: "Numérique/Chaîne", constraints: "Clé Primaire" },
+                    { name: "id_cabine", type: "Numérique/Chaîne", constraints: "Clé Étrangère (CABINE), Obligatoire" },
                     { name: "NomVoie", type: "Chaîne", constraints: "Unique" },
                     { name: "TypeVoie", type: "Chaîne", constraints: "Obligatoire (Télépéage/Manuelle)" },
                     { name: "StatutVoie", type: "Chaîne", constraints: "Obligatoire (Ouvert/Fermé)" }
                 ],
                 relations: [
+                    "Est contenue dans une <strong>CABINE</strong> (1,1) via `HEBERGE` (Association)",
                     "Enregistre des <strong>TRANSACTION</strong> (0,N) via `UTILISE` (Association)",
                     "Gérée par <strong>EMPLOYE (Percepteur)</strong> (0,1) via `GERE_VOIE` (Association)"
                 ]
@@ -469,9 +560,12 @@
             TRANSACTION: {
                 attributes: [
                     { name: "TransactionID", type: "Numérique/Chaîne", constraints: "Clé Primaire" },
+                    { name: "id_session_reddition", type: "Numérique/Chaîne", constraints: "Clé Étrangère (SESSION_DE_REDDITION), Obligatoire" },
                     { name: "VoieID", type: "Numérique/Chaîne", constraints: "Clé Étrangère (VOIE)" },
+                    { name: "id_peage", type: "Numérique/Chaîne", constraints: "Clé Étrangère (PEAGE), Obligatoire" },
+                    { name: "id_cabine", type: "Numérique/Chaîne", constraints: "Clé Étrangère (CABINE), Obligatoire" },
                     { name: "PlaqueImmatriculation", type: "Chaîne", constraints: "Obligatoire (Correspond à VEHICULE)" },
-                    { name: "TypePaiement", type: "Chaîne", constraints: "Obligatoire (Espèce, Carte, Badge)" },
+                    { name: "mode_paiement", type: "Chaîne", constraints: "Obligatoire (Badge, Espèces, Carte)" },
                     { name: "MontantPaye", type: "Monétaire", constraints: "Obligatoire" },
                     { name: "DateHeurePassage", type: "Date/Heure", constraints: "Obligatoire" },
                     { name: "ClassificationVehicule", type: "Chaîne", constraints: "Déterminée par TCS COMPTAGE" }
@@ -479,33 +573,98 @@
                 relations: [
                     "Concerne un <strong>VEHICULE</strong> (1,1) via `PASSAGE` (Association)",
                     "Utilise une <strong>VOIE</strong> (1,1) via `UTILISE` (Association)",
-                    "Supervisée par <strong>EMPLOYE (Superviseur)</strong> (0,N) via `SUPERVISE` (Association)"
+                    "Appartient à une <strong>SESSION_DE_REDDITION</strong> (1,1) via `INCLUT` (Composition)"
                 ]
             },
+            
+            // NOUVELLE ENTITÉ: UTILISATEUR_SYSTEME
+            UTILISATEUR_SYSTEME: {
+                attributes: [
+                    { name: "id_utilisateur", type: "Numérique/Chaîne", constraints: "Clé Primaire" },
+                    { name: "nom", type: "Chaîne", constraints: "Obligatoire" },
+                    { name: "role", type: "Chaîne", constraints: "Obligatoire (Admin, Superviseur, Percepteur)" },
+                    { name: "identifiants_connexion", type: "Chaîne", constraints: "Unique, Obligatoire" },
+                    { name: "historique_connexions", type: "Liste de Dates/IP", constraints: "Facultatif" }
+                ],
+                relations: [
+                    "Associé à un <strong>EMPLOYE</strong> (0,1) via `EST_ASSOCIE` (Association)",
+                    "Gère les <strong>PEAGE</strong> et <strong>CABINE</strong> (0,N) via `ADMINISTRE` (Association)"
+                ]
+            },
+
             EMPLOYE: {
                 attributes: [
                     { name: "EmployeID", type: "Numérique/Chaîne", constraints: "Clé Primaire" },
+                    { name: "id_utilisateur", type: "Numérique/Chaîne", constraints: "Clé Étrangère (UTILISATEUR_SYSTEME), Unique" },
                     { name: "Nom", type: "Chaîne", constraints: "Obligatoire" },
                     { name: "Role", type: "Chaîne", constraints: "Obligatoire (Admin, Percepteur, Superviseur)" },
-                    { name: "Matricule", type: "Chaîne", constraints: "Unique, Obligatoire" }
+                    { name: "matricule", type: "Chaîne", constraints: "Unique, Obligatoire" },
+                    { name: "poste", type: "Chaîne", constraints: "Obligatoire (Percepteur de voie, Superviseur de site...)" },
+                    { name: "date_affectation", type: "Date", constraints: "Obligatoire" },
+                    { name: "statut", type: "Chaîne", constraints: "Obligatoire (Actif/Suspendu)" }
                 ],
                 relations: [
-                    "Peut faire une <strong>REDDITION</strong> (si Percepteur) (0,N) via `FAIT_REDDITION`",
-                    "Peut gérer des <strong>VOIE</strong> (si Percepteur) (0,N) via `GERE_VOIE`",
-                    "Peut superviser des <strong>TRANSACTION</strong> (si Superviseur) (0,N) via `SUPERVISE`"
+                    "Lié à un <strong>UTILISATEUR_SYSTEME</strong> (1,1) via `EST_ASSOCIE` (Association)",
+                    "Peut faire une <strong>SESSION_DE_REDDITION</strong> (si Percepteur) (0,N) via `DEBUTE`",
+                    "Peut gérer des <strong>VOIE</strong> (si Percepteur) (0,N) via `GERE_VOIE`"
                 ]
             },
+            
+            // NOUVELLE ENTITÉ: SESSION_DE_REDDITION
+            SESSION_DE_REDDITION: {
+                attributes: [
+                    { name: "id_session", type: "Numérique/Chaîne", constraints: "Clé Primaire" },
+                    { name: "id_employe", type: "Numérique/Chaîne", constraints: "Clé Étrangère (EMPLOYE), Obligatoire" },
+                    { name: "id_cabine", type: "Numérique/Chaîne", constraints: "Clé Étrangère (CABINE), Obligatoire" },
+                    { name: "date_debut", type: "Date/Heure", constraints: "Obligatoire" },
+                    { name: "date_fin", type: "Date/Heure", constraints: "Facultatif (fin de session)" },
+                    { name: "total_systeme", type: "Monétaire", constraints: "Calculé à partir des TRANSACTIONS" },
+                    { name: "total_declare", type: "Monétaire", constraints: "Saisi par le Percepteur" },
+                    { name: "manquant", type: "Monétaire", constraints: "Calculé (total_systeme - total_declare)" },
+                    { name: "surplus", type: "Monétaire", constraints: "Calculé (total_declare - total_systeme)" }
+                ],
+                relations: [
+                    "Débutée par un <strong>EMPLOYE</strong> (1,1) via `DEBUTE` (Association)",
+                    "Concerne une <strong>CABINE</strong> (1,1) via `ASSIGNATION` (Association)",
+                    "Inclut <strong>TRANSACTION</strong> (1,N) via `INCLUT` (Composition)",
+                    "Fait l'objet d'une <strong>REDDITION</strong> (1,1) via `ASSOCIE_REDDITION`"
+                ]
+            },
+
             REDDITION: {
                 attributes: [
                     { name: "RedditionID", type: "Numérique/Chaîne", constraints: "Clé Primaire" },
-                    { name: "EmployeID", type: "Numérique/Chaîne", constraints: "Clé Étrangère (EMPLOYE), Obligatoire" },
+                    { name: "id_session", type: "Numérique/Chaîne", constraints: "Clé Étrangère (SESSION_DE_REDDITION), Unique, Obligatoire" },
+                    { name: "EmployeID", type: "Numérique/Chaîne", constraints: "Clé Étrangère (EMPLOYE - Percepteur), Obligatoire" },
                     { name: "DateHeureReddition", type: "Date/Heure", constraints: "Obligatoire" },
-                    { name: "MontantDeclare", type: "Monétaire", constraints: "Obligatoire" },
-                    { name: "MontantCompte", type: "Monétaire", constraints: "Résultat du contrôle" },
-                    { name: "Statut", type: "Chaîne", constraints: "Validé, En Attente, Écart" }
+                    { name: "MontantDeclare", type: "Monétaire", constraints: "Obligatoire (Report de Session)" },
+                    { name: "MontantCompte", type: "Monétaire", constraints: "Résultat du contrôle physique" },
+                    { name: "Statut", type: "Chaîne", constraints: "Validé, En Attente, Écart" },
+                    { name: "date_saisie", type: "Date/Heure", constraints: "Obligatoire" },
+                    { name: "justification_ecart", type: "Chaîne", constraints: "Facultatif (si Écart)" },
+                    { name: "validé_par_superviseur", type: "Booléen", constraints: "Obligatoire" }
                 ],
                 relations: [
-                    "Effectuée par <strong>EMPLOYE (Percepteur)</strong> (1,1) via `FAIT_REDDITION` (Association)"
+                    "Effectuée par <strong>EMPLOYE (Percepteur)</strong> (1,1) via `FAIT_REDDITION` (Association)",
+                    "Concerne une <strong>SESSION_DE_REDDITION</strong> (1,1) via `ASSOCIE_REDDITION`",
+                    "Peut générer des <strong>ANOMALIE_REDDITION</strong> (0,N) via `DECLENCHE`"
+                ]
+            },
+
+            // NOUVELLE ENTITÉ: ANOMALIE_REDDITION
+            ANOMALIE_REDDITION: {
+                attributes: [
+                    { name: "id_anomalie", type: "Numérique/Chaîne", constraints: "Clé Primaire" },
+                    { name: "id_session", type: "Numérique/Chaîne", constraints: "Clé Étrangère (SESSION_DE_REDDITION), Obligatoire" },
+                    { name: "id_reddition", type: "Numérique/Chaîne", constraints: "Clé Étrangère (REDDITION), Obligatoire" },
+                    { name: "type_anomalie", type: "Chaîne", constraints: "Obligatoire (Manquant, Surplus)" },
+                    { name: "montant", type: "Monétaire", constraints: "Obligatoire (Écart)" },
+                    { name: "justification", type: "Chaîne", constraints: "Facultatif (Saisi par Percepteur/Superviseur)" },
+                    { name: "résolu", type: "Booléen", constraints: "Obligatoire" }
+                ],
+                relations: [
+                    "Déclenchée par une <strong>REDDITION</strong> (1,1) via `DECLENCHE` (Composition)",
+                    "Liée à une <strong>SESSION_DE_REDDITION</strong> (1,1) via `CONCERNE_SESSION`"
                 ]
             }
         };
@@ -752,12 +911,18 @@
             new Chart(modelStatsCtx, {
                 type: 'doughnut',
                 data: {
-                    labels: ['Gestion Client (CLIENT, ABONNE, VEHICULE)', 'Opérations (TRANSACTION, VOIE)', 'Administration & Comptabilité (EMPLOYE, REDDITION)'],
+                    // MÀJ des entités totales : 12 au lieu de 7
+                    labels: [
+                        'Gestion Client (CLIENT, ABONNE, VEHICULE)', 
+                        'Infrastructure (PEAGE, CABINE, VOIE)', 
+                        'Opérations et Flux (TRANSACTION, SESSION_DE_REDDITION)',
+                        'Administration, RH & Audit (UTILISATEUR_SYSTEME, EMPLOYE, REDDITION, ANOMALIE_REDDITION)'
+                    ],
                     datasets: [{
                         label: 'Nombre d\'entités',
-                        data: [3, 2, 2],
-                        backgroundColor: ['rgb(16, 185, 129, 0.9)', 'rgb(30, 41, 59, 0.8)', 'rgb(249, 115, 22, 0.9)'],
-                        borderColor: ['rgb(16, 185, 129)', 'rgb(30, 41, 59)', 'rgb(249, 115, 22)'],
+                        data: [3, 3, 2, 4], // 3 + 3 + 2 + 4 = 12
+                        backgroundColor: ['rgb(16, 185, 129, 0.9)', 'rgb(30, 41, 59, 0.8)', 'rgb(249, 115, 22, 0.9)', 'rgb(124, 58, 237, 0.8)'],
+                        borderColor: ['rgb(16, 185, 129)', 'rgb(30, 41, 59)', 'rgb(249, 115, 22)', 'rgb(124, 58, 237)'],
                         borderWidth: 2
                     }]
                 },
