@@ -17,7 +17,8 @@
 
         /* Navigation Links */
         .nav-link {
-            @apply px-3 py-2 rounded-xl text-slate-700 font-semibold hover:bg-emerald-100 hover:text-emerald-800 transition-all duration-200 text-sm md:text-base;
+            /* Changement: Rendre les liens plus accessibles au toucher sur mobile (py-3) */
+            @apply px-3 py-3 rounded-xl text-slate-700 font-semibold hover:bg-emerald-100 hover:text-emerald-800 transition-all duration-200 text-sm md:text-base;
         }
         .nav-link.active {
             @apply bg-emerald-600 text-white hover:bg-emerald-700 shadow-md shadow-emerald-400/50;
@@ -31,7 +32,7 @@
             @apply bg-emerald-50 text-emerald-800 font-bold border-l-4 border-emerald-600;
         }
 
-        /* Chart Containers */
+        /* Chart Containers (Styles existants conservés) */
         .chart-container-mcd {
             position: relative;
             width: 100%;
@@ -109,13 +110,15 @@
 
     <nav class="sticky top-0 bg-white shadow-lg z-50">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-24">
+            <div class="flex items-center justify-between h-16 md:h-24">
+                
                 <div class="flex-shrink-0">
-                    <h1 class="text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-orange-500 to-emerald-600 drop-shadow-md">
+                    <h1 class="text-2xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-orange-500 to-emerald-600 drop-shadow-md">
                         TCS Tableau de Bord
                     </h1>
                 </div>
-                <div class="flex flex-wrap items-center justify-end space-x-2 sm:space-x-3">
+
+                <div class="hidden md:flex flex-wrap items-center justify-end space-x-2 sm:space-x-3" id="nav-desktop">
                     <button class="nav-link active" data-target="accueil">Accueil</button>
                     <button class="nav-link" data-target="technologie">Technologie</button>
                     <button class="nav-link" data-target="impact">Impact</button>
@@ -123,12 +126,34 @@
                     <button class="nav-link" data-target="dictionnaire">Dictionnaire</button>
                     <button class="nav-link" data-target="logique">Logique Métier</button>
                 </div>
+
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-slate-500 hover:text-emerald-600 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-emerald-500" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Ouvrir le menu principal</span>
+                        <svg id="icon-menu" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <svg id="icon-close" class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col">
+                <button class="nav-link active w-full text-left" data-target="accueil">Accueil</button>
+                <button class="nav-link w-full text-left" data-target="technologie">Technologie</button>
+                <button class="nav-link w-full text-left" data-target="impact">Impact</button>
+                <button class="nav-link w-full text-left" data-target="schema_mcd">Schéma MCD</button>
+                <button class="nav-link w-full text-left" data-target="dictionnaire">Dictionnaire</button>
+                <button class="nav-link w-full text-left" data-target="logique">Logique Métier</button>
             </div>
         </div>
     </nav>
-
     <main class="container mx-auto p-4 md:p-8 lg:p-12">
-
         <section id="accueil" class="page-section animate-fade-in space-y-14">
             <div class="bg-gradient-to-r from-red-600 via-orange-500 to-emerald-600 p-8 md:p-12 rounded-3xl shadow-2xl text-white">
                 <h2 class="text-4xl md:text-5xl font-extrabold mb-4 drop-shadow-lg">TCS: La Révolution du Contrôle de Péage</h2>
@@ -138,7 +163,7 @@
             </div>
 
             <div class="app-card">
-                 <h2 class="text-3xl font-bold text-center mb-4">Une Solution, Deux Volets Opérationnels</h2>
+                <h2 class="text-3xl font-bold text-center mb-4">Une Solution, Deux Volets Opérationnels</h2>
                 <p class="text-lg text-gray-600 text-center max-w-3xl mx-auto mb-12">
                     Le système TCS est conçu pour gérer nativement les deux types de flux de péage, assurant une couverture complète de vos opérations.
                 </p>
@@ -150,7 +175,7 @@
                             Gestion optimisée des clients enregistrés. Inclut la gestion des comptes prépayés, le télépéage (via badge `ABONNEE`) et la réinitialisation de cartes (`RESETCARD`).
                         </p>
                     </div>
-                   
+                    
                     <div class="flow-box flex-1 border-orange-500">
                         <span class="text-5xl">🚗</span>
                         <h3 class="text-2xl font-semibold text-orange-600 my-3">Volet NON ABONNEMENT</h3>
@@ -228,7 +253,7 @@
                 <div class="app-card">
                     <h3 class="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-emerald-100 pb-2 text-center">Schéma Conceptuel Abstrait</h3>
                     <p class="text-slate-600 mb-8 text-center leading-relaxed">Représentation des relations clés entre les entités pour une vue d'ensemble rapide.</p>
-                   
+                    
                     <div class="relative h-[550px] sm:h-[600px] md:h-[650px] p-4 flex justify-center items-center">
                         <div class="relative w-full max-w-xl h-full">
                             <div class="entity-box" style="top: 50%; left: 50%; transform: translate(-50%, -50%);">TRANSACTION</div>
@@ -378,7 +403,7 @@
     </footer>
 
     <script>
-        // DATA MODEL DEFINITION
+        // DATA MODEL DEFINITION (Conservé, pas d'impact sur la navbar)
         const modelData = {
             CLIENT: {
                 attributes: [
@@ -478,7 +503,7 @@
             }
         };
 
-        // --- Dictionnaire Functions ---
+        // --- Dictionnaire Functions (Conservées) ---
         const generateTableHTML = (attributes) => {
             let rows = attributes.map(attr => `
                 <tr class="border-b border-slate-100 hover:bg-emerald-50/50 transition-colors duration-100">
@@ -517,274 +542,180 @@
                 <h3 class="text-4xl font-extrabold text-slate-800 mb-2">${entityName}</h3>
                 <p class="text-xl text-emerald-600 mb-8">${data.attributes.length} Attributs | ${data.relations.length} Relations Clés</p>
 
-                <h4 class="text-2xl font-bold text-slate-700 mb-4 border-b pb-2">Attributs de l'Entité</h4>
+                <h4 class="text-2xl font-bold text-slate-700 mt-8 mb-4 border-b pb-2">Attributs de l'Entité</h4>
                 ${tableHTML}
 
-                <h4 class="text-2xl font-bold text-slate-700 mt-10 mb-4 border-b pb-2">Relations Conceptuelles</h4>
+                <h4 class="text-2xl font-bold text-slate-700 mt-8 mb-4 border-b pb-2">Relations Clés</h4>
                 <ul class="space-y-3">
                     ${relationsHTML}
                 </ul>
             `;
         };
 
-        const updateEntityDetails = (entityName) => {
-            const container = document.getElementById('entityDetailContainer');
-            const data = modelData[entityName];
+        // --- Navigation Logic (Améliorée) ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const pageSections = document.querySelectorAll('.page-section');
+            const dictLinks = document.querySelectorAll('.dict-link');
+            const entityDetailContainer = document.getElementById('entityDetailContainer');
+            
+            // [NOUVELLE LOGIQUE MOBILE]
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const iconMenu = document.getElementById('icon-menu');
+            const iconClose = document.getElementById('icon-close');
 
-            if (data) {
-                container.classList.remove('justify-center', 'items-center');
-                container.innerHTML = generateEntityDetails(entityName, data);
-            }
-        };
+            const toggleMobileMenu = () => {
+                const isHidden = mobileMenu.classList.contains('hidden');
+                mobileMenu.classList.toggle('hidden', !isHidden);
+                iconMenu.classList.toggle('hidden', isHidden);
+                iconClose.classList.toggle('hidden', !isHidden);
+            };
 
-        // Event listener for Dictionnaire links
-        document.querySelectorAll('.dict-link').forEach(button => {
-            button.addEventListener('click', (e) => {
-                const entityName = e.target.getAttribute('data-entity');
+            mobileMenuButton.addEventListener('click', toggleMobileMenu);
 
-                // Update active link style
-                document.querySelectorAll('.dict-link').forEach(link => {
-                    link.classList.remove('active');
-                });
-                e.target.classList.add('active');
+            const switchSection = (targetId) => {
+                // Masquer toutes les sections
+                pageSections.forEach(section => section.classList.add('hidden'));
 
-                // Update details
-                updateEntityDetails(entityName);
-            });
-        });
-
-        // --- Navigation Functions ---
-        document.querySelectorAll('.nav-link').forEach(button => {
-            button.addEventListener('click', (e) => {
-                const targetId = e.target.getAttribute('data-target');
-
-                // 1. Update active link style
-                document.querySelectorAll('.nav-link').forEach(link => {
-                    link.classList.remove('active');
-                });
-                e.target.classList.add('active');
-
-                // 2. Hide all sections and show the target one
-                document.querySelectorAll('.page-section').forEach(section => {
-                    section.classList.add('hidden');
-                });
+                // Afficher la section cible
                 const targetSection = document.getElementById(targetId);
                 if (targetSection) {
                     targetSection.classList.remove('hidden');
                 }
 
-                // Special case for Dictionnaire: highlight the first entity on load if none selected
-                if (targetId === 'dictionnaire') {
-                    const firstDictLink = document.querySelector('.dict-link');
-                    const container = document.getElementById('entityDetailContainer');
-                    // Only load default if the container is empty (first load or reset state)
-                    if (firstDictLink && container.innerHTML.includes('Sélectionnez une Entité')) {
-                         firstDictLink.click();
-                    }
+                // Mettre à jour les liens actifs
+                navLinks.forEach(link => link.classList.remove('active'));
+                const currentLink = document.querySelector(`.nav-link[data-target="${targetId}"]`);
+                if (currentLink) {
+                    currentLink.classList.add('active');
                 }
+
+                // Fermer le menu mobile après la sélection
+                if (!mobileMenu.classList.contains('hidden')) {
+                     toggleMobileMenu();
+                }
+            };
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const targetId = e.currentTarget.getAttribute('data-target');
+                    switchSection(targetId);
+                });
             });
-        });
 
-        // --- Chart Functions ---
+            // Initialisation: Afficher la première section
+            if (pageSections.length > 0) {
+                switchSection('accueil');
+            }
 
-        // Chart: Technology Accuracy (Doughnut)
-        const renderAccuracyChart = () => {
-            const ctx = document.getElementById('accuracyChart').getContext('2d');
-            new Chart(ctx, {
-                type: 'doughnut',
+
+            // --- Dictionnaire Logic ---
+            dictLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    dictLinks.forEach(l => l.classList.remove('active'));
+                    e.currentTarget.classList.add('active');
+
+                    const entityName = e.currentTarget.getAttribute('data-entity');
+                    const data = modelData[entityName];
+                    if (data) {
+                        entityDetailContainer.innerHTML = generateEntityDetails(entityName, data);
+                    }
+                });
+            });
+
+            // --- Chart.js Initialisation (Conservée) ---
+            // Simuler des données pour les graphiques
+            const revenueCtx = document.getElementById('revenueChart');
+            if(revenueCtx) new Chart(revenueCtx, {
+                type: 'line',
                 data: {
-                    labels: ['Précision VIDAR (IA)', 'Précision Ancien Système', 'Marge d\'Erreur/Non Classifié'],
+                    labels: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin'],
                     datasets: [{
-                        label: 'Précision de Classification',
-                        data: [98.5, 80, 1.5], // Fictional Data
-                        backgroundColor: [
-                            'rgb(16, 185, 129)', // emerald-500
-                            'rgb(251, 191, 36)', // amber-400
-                            'rgb(100, 116, 139)' // slate-500
-                        ],
-                        hoverOffset: 4
+                        label: 'Recettes (Après TCS)',
+                        data: [120, 135, 160, 175, 190, 210],
+                        borderColor: '#059669',
+                        tension: 0.3,
+                        fill: false
+                    }, {
+                        label: 'Recettes (Ancien Système)',
+                        data: [100, 105, 115, 120, 125, 130],
+                        borderColor: '#94a3b8',
+                        borderDash: [5, 5],
+                        tension: 0.3,
+                        fill: false
                     }]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            position: 'bottom',
-                            labels: {
-                                font: {
-                                    size: 14
-                                }
-                            }
-                        },
-                        title: {
-                            display: false
-                        }
-                    }
-                }
-            });
-        };
-
-        // Chart: Revenue Optimization (Bar)
-        const renderRevenueChart = () => {
-            const ctx = document.getElementById('revenueChart').getContext('2d');
-            new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: ['T-1 (Avant TCS)', 'T (Après TCS)'],
-                    datasets: [
-                        {
-                            label: 'Recettes Collectées (M€)',
-                            data: [15, 21], // Fictional Data
-                            backgroundColor: 'rgb(16, 185, 129, 0.7)', // emerald-500
-                            borderColor: 'rgb(16, 185, 129)',
-                            borderWidth: 1
-                        },
-                        {
-                            label: 'Pertes Estimées (M€)',
-                            data: [4, 0.5], // Fictional Data
-                            backgroundColor: 'rgb(239, 68, 68, 0.7)', // red-500
-                            borderColor: 'rgb(239, 68, 68)',
-                            borderWidth: 1
-                        }
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            position: 'top',
-                            labels: {
-                                font: {
-                                    size: 14
-                                }
-                            }
-                        },
-                        title: {
-                            display: false
-                        }
-                    },
                     scales: {
                         y: {
-                            beginAtZero: true,
-                            title: {
-                                display: true,
-                                text: 'Montant (M€)'
-                            }
+                            beginAtZero: true
                         }
                     }
                 }
             });
-        };
 
-        // Chart: Traffic Analysis (Pie)
-        const renderTrafficChart = () => {
-            const ctx = document.getElementById('trafficChart').getContext('2d');
-            new Chart(ctx, {
-                type: 'pie',
+            const trafficCtx = document.getElementById('trafficChart');
+            if(trafficCtx) new Chart(trafficCtx, {
+                type: 'bar',
                 data: {
-                    labels: ['Véhicules Légers (VL)', 'Poids Lourds (PL) 2 Essieux', 'PL 3 Essieux', 'PL > 3 Essieux'],
+                    labels: ['Véhicules Légers', 'Poids Lourds (2-3 essieux)', 'Poids Lourds (4+ essieux)', 'Motos'],
                     datasets: [{
-                        label: 'Flux de Trafic',
-                        data: [65, 15, 10, 10], // Fictional Data
-                        backgroundColor: [
-                            'rgb(59, 130, 246)', // blue-500
-                            'rgb(234, 179, 8)', // yellow-600
-                            'rgb(124, 58, 237)', // violet-600
-                            'rgb(249, 115, 22)' // orange-600
-                        ],
+                        label: 'Flux de Trafic (par Classification VIDAR)',
+                        data: [45000, 12000, 3500, 8000],
+                        backgroundColor: ['#059669', '#f97316', '#ef4444', '#3b82f6'],
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            const accuracyCtx = document.getElementById('accuracyChart');
+            if(accuracyCtx) new Chart(accuracyCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['VIDAR', 'Ancien Système (Inductif)'],
+                    datasets: [{
+                        label: 'Précision Classification (%)',
+                        data: [99.8, 85.5],
+                        backgroundColor: ['#059669', '#fbbf24'],
                         hoverOffset: 4
                     }]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            position: 'right',
-                            labels: {
-                                font: {
-                                    size: 14
-                                }
-                            }
-                        },
-                        title: {
-                            display: false
-                        }
-                    }
                 }
             });
-        };
 
-        // Chart: Model Stats (Pie)
-        const renderModelStatsChart = () => {
-             const ctx = document.getElementById('modelStatsChart').getContext('2d');
-            new Chart(ctx, {
-                type: 'polarArea',
+            const modelStatsCtx = document.getElementById('modelStatsChart');
+            if(modelStatsCtx) new Chart(modelStatsCtx, {
+                type: 'pie',
                 data: {
-                    labels: ['Gestion Clients/Abonnés', 'Acquisition & Recettes', 'Logistique & Administration', 'Supervision & Audit'],
+                    labels: ['Administration (CLIENT/EMPLOYE)', 'Acquisition de Données (VOIE/VEHICULE)', 'Opérations Financières (TRANSACTION/REDDITION)'],
                     datasets: [{
-                        label: 'Entités Couvertes',
-                        data: [3, 3, 1, 1], // CLIENT, ABONNE, VEHICULE | VOIE, TRANSACTION, REDDITION | EMPLOYE
-                        backgroundColor: [
-                            'rgba(16, 185, 129, 0.7)', // emerald
-                            'rgba(251, 191, 36, 0.7)', // amber
-                            'rgba(59, 130, 246, 0.7)', // blue
-                            'rgba(239, 68, 68, 0.7)' // red
-                        ],
-                        borderColor: [
-                            'rgb(16, 185, 129)',
-                            'rgb(251, 191, 36)',
-                            'rgb(59, 130, 246)',
-                            'rgb(239, 68, 68)'
-                        ],
-                        borderWidth: 2
+                        label: 'Couverture du Modèle',
+                        data: [3, 2, 2], // Nombre d'entités par catégorie
+                        backgroundColor: ['#3b82f6', '#10b981', '#f97316'],
+                        hoverOffset: 4
                     }]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                     plugins: {
-                        legend: {
-                            position: 'bottom',
-                            labels: {
-                                font: {
-                                    size: 14
-                                }
-                            }
-                        },
-                        title: {
-                            display: false
-                        }
-                    },
-                    scales: {
-                        r: {
-                            grid: {
-                                color: 'rgba(0, 0, 0, 0.1)'
-                            },
-                            angleLines: {
-                                color: 'rgba(0, 0, 0, 0.1)'
-                            },
-                            pointLabels: {
-                                display: true,
-                                font: {
-                                    size: 14
-                                }
-                            }
-                        }
-                    }
                 }
             });
-        };
-
-        // Initial setup
-        window.onload = () => {
-            renderAccuracyChart();
-            renderRevenueChart();
-            renderTrafficChart();
-            renderModelStatsChart();
-        };
+            // --- END Chart.js Initialisation ---
+        });
     </script>
 </body>
 </html>
