@@ -15,11 +15,19 @@
             color: #1e293b; /* text-slate-800 */
         }
 
-        /* Navigation Links */
+        /* Desktop Navigation Links */
         .nav-link {
             @apply px-3 py-2 rounded-xl text-slate-700 font-semibold hover:bg-emerald-100 hover:text-emerald-800 transition-all duration-200 text-sm md:text-base;
         }
         .nav-link.active {
+            @apply bg-emerald-600 text-white hover:bg-emerald-700 shadow-md shadow-emerald-400/50;
+        }
+
+        /* Mobile Navigation Links (New Style for responsiveness) */
+        .nav-link-mobile {
+            @apply block w-full text-left px-5 py-3 rounded-lg text-slate-700 font-semibold hover:bg-emerald-100 hover:text-emerald-800 transition-all duration-200;
+        }
+        .nav-link-mobile.active {
             @apply bg-emerald-600 text-white hover:bg-emerald-700 shadow-md shadow-emerald-400/50;
         }
 
@@ -111,11 +119,12 @@
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-24">
                 <div class="flex-shrink-0">
-                    <h1 class="text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-orange-500 to-emerald-600 drop-shadow-md">
+                    <h1 class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-orange-500 to-emerald-600 drop-shadow-md">
                         TCS Tableau de Bord
                     </h1>
                 </div>
-                <div class="flex flex-wrap items-center justify-end space-x-2 sm:space-x-3">
+
+                <div class="hidden sm:flex flex-wrap items-center justify-end space-x-2 sm:space-x-3" id="desktop-menu">
                     <button class="nav-link active" data-target="accueil">Accueil</button>
                     <button class="nav-link" data-target="technologie">Technologie</button>
                     <button class="nav-link" data-target="impact">Impact</button>
@@ -123,6 +132,28 @@
                     <button class="nav-link" data-target="dictionnaire">Dictionnaire</button>
                     <button class="nav-link" data-target="logique">Logique Métier</button>
                 </div>
+
+                <div class="sm:hidden">
+                    <button id="mobile-menu-button" type="button" class="p-2 rounded-md text-slate-700 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-emerald-500">
+                        <svg id="menu-icon-open" class="h-6 w-6 block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <svg id="menu-icon-close" class="h-6 w-6 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden sm:hidden bg-white shadow-lg pb-4 border-t border-slate-200">
+            <div class="space-y-1 px-2 pt-2 pb-3">
+                <button class="nav-link-mobile active" data-target="accueil">Accueil</button>
+                <button class="nav-link-mobile" data-target="technologie">Technologie</button>
+                <button class="nav-link-mobile" data-target="impact">Impact</button>
+                <button class="nav-link-mobile" data-target="schema_mcd">Schéma MCD</button>
+                <button class="nav-link-mobile" data-target="dictionnaire">Dictionnaire</button>
+                <button class="nav-link-mobile" data-target="logique">Logique Métier</button>
             </div>
         </div>
     </nav>
@@ -541,21 +572,66 @@
             });
         });
 
-        // --- Navigation Functions ---
-        const navLinks = document.querySelectorAll('.nav-link');
+        // --- Navigation Functions (Responsive Update) ---
+        const navLinks = document.querySelectorAll('.nav-link'); // Desktop links
+        const navLinksMobile = document.querySelectorAll('.nav-link-mobile'); // Mobile links
         const sections = document.querySelectorAll('.page-section');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const menuIconOpen = document.getElementById('menu-icon-open');
+        const menuIconClose = document.getElementById('menu-icon-close');
+
+        // Function to close mobile menu
+        const closeMobileMenu = () => {
+            mobileMenu.classList.add('hidden');
+            menuIconOpen.classList.remove('hidden');
+            menuIconClose.classList.add('hidden');
+        };
+
+        // Function to toggle mobile menu
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            menuIconOpen.classList.toggle('hidden');
+            menuIconClose.classList.toggle('hidden');
+        });
+
+        // Combined logic for switching sections and handling menu active state
+        const switchSection = (targetId, isMobile) => {
+            sections.forEach(section => {
+                section.classList.add('hidden');
+                section.classList.remove('animate-fade-in');
+            });
+            const targetSection = document.getElementById(targetId);
+            targetSection.classList.remove('hidden');
+            targetSection.classList.add('animate-fade-in');
+
+            // Reset and set active class for desktop links
+            navLinks.forEach(l => l.classList.remove('active'));
+            const desktopActiveLink = document.querySelector(`.nav-link[data-target="${targetId}"]`);
+            if (desktopActiveLink) desktopActiveLink.classList.add('active');
+
+            // Reset and set active class for mobile links
+            navLinksMobile.forEach(l => l.classList.remove('active'));
+            const mobileActiveLink = document.querySelector(`.nav-link-mobile[data-target="${targetId}"]`);
+            if (mobileActiveLink) mobileActiveLink.classList.add('active');
+
+            // If a mobile link was clicked, close the menu
+            if (isMobile) {
+                closeMobileMenu();
+            }
+        };
+
+        // Add event listeners for desktop links
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
-                const targetId = link.dataset.target;
-                sections.forEach(section => {
-                    section.classList.add('hidden');
-                    section.classList.remove('animate-fade-in');
-                });
-                const targetSection = document.getElementById(targetId);
-                targetSection.classList.remove('hidden');
-                targetSection.classList.add('animate-fade-in');
-                navLinks.forEach(l => l.classList.remove('active'));
-                link.classList.add('active');
+                switchSection(link.dataset.target, false);
+            });
+        });
+
+        // Add event listeners for mobile links
+        navLinksMobile.forEach(link => {
+            link.addEventListener('click', () => {
+                switchSection(link.dataset.target, true);
             });
         });
 
@@ -691,7 +767,17 @@
         // --- Initialization ---
         document.addEventListener('DOMContentLoaded', () => {
             initializeCharts();
+            // Start by showing the 'accueil' section
             document.getElementById('accueil').classList.remove('hidden');
+            // Ensure the initial navigation state is correct
+            const initialLink = document.querySelector('.nav-link.active');
+            if (initialLink) {
+                // Manually set the mobile link to active too
+                const targetId = initialLink.dataset.target;
+                const mobileActiveLink = document.querySelector(`.nav-link-mobile[data-target="${targetId}"]`);
+                if (mobileActiveLink) mobileActiveLink.classList.add('active');
+            }
+
             if (dictLinks.length > 0) {
                 // Ensure first dictionary entity is selected by default after load
                 dictLinks[0].click(); 
